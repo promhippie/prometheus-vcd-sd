@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+
+<html id="html" lang="en-us">
+	<head>
+	<meta name="generator" content="Hugo 0.55.5" />
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<meta name="viewport" content="width=device-width"/>
+
+		<title>
+			Prometheus vCloud Director SD
+		</title>
+
+		<meta name="description" content="Prometheus service discovery for vCloud Director">
+		<meta name="author" content="Thomas Boerger">
+
+		<link rel="stylesheet" href="syntax.css" />
+
+<style type="text/css">
+	body,
+	div,
+	dl,
+	dt,
+	dd,
+	ul,
+	ol,
+	li,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	pre,
+	form,
+	fieldset,
+	input,
+	textarea,
+	p,
+	blockquote,
+	th,
+	td {
+		margin: 0;
+		padding: 0;
+	}
+
+	* {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	:before,
+	:after {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	img,
+	object,
+	embed {
+		max-width: 100%;
+		height: auto;
+	}
+
+	object,
+	embed {
+		height: 100%;
+	}
+
+	img {
+		margin: 1.25% 0;
+		-ms-interpolation-mode: bicubic;
+	}
+
+	html {
+		background-color: #F0F1F3;
+		padding: 2%;
+	}
+
+	body {
+		font-size: 16px;
+		line-height: 1.6;
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+		color: #242424;
+		max-width: 800px;
+		margin: 5% auto;
+	}
+
+	body::after {
+		clear: both;
+		content: "";
+		display: table;
+	}
+
+	header {
+		margin-bottom: 8%;
+	}
+
+	footer {
+		text-align: center;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h1 a {
+		color: #263A48;
+		font-weight: 500;
+		text-decoration: none;
+	}
+
+	h1,
+	h2 {
+		font-size: 36px;
+		padding-bottom: 0.3em;
+		margin-bottom: 0.4em;
+		border-bottom: 1px solid #eee
+	}
+
+	h2 {
+		font-size: 22px;
+		padding-bottom: 0.6em;
+		margin-bottom: 0.6em;
+		margin-top: 2.5em;
+	}
+
+	h3 {
+		font-size: 18px;
+		margin-bottom: 0.3em;
+	}
+
+	h1 small a {
+		color: #98999C;
+		font-size: 15px;
+		font-weight: normal;
+		float: right;
+		position: absolute;
+		top: 15px;
+		right: 20px;
+	}
+
+	section {
+		background: #fff;
+		margin-bottom: 1%;
+		position: relative;
+		padding: 6% 8%;
+	}
+
+	blockquote {
+		border-left: 3px solid #d54e21;
+		font-size: 16px;
+		padding: 0 0 0 20px;
+		color: #d54e21;
+	}
+
+	blockquote a {
+		color: #d54e21;
+		font-weight: 500;
+	}
+
+	blockquote code {
+		color: #d54e21;
+	}
+
+	.highlight pre {
+		padding: 10px;
+	}
+
+	.highlight {
+		margin-bottom: 4%;
+	}
+
+	a {
+		color: #1e8cbe;
+		text-decoration: underline;
+	}
+
+	a:hover {
+		color: #d54e21;
+	}
+
+	ul {
+		list-style: none;
+	}
+
+	ol {
+		list-style: number;
+	}
+
+	ol li {
+		color: #98999C;
+		margin-bottom: 5px;
+	}
+
+	ol li:last-child {
+		margin-bottom: 0;
+	}
+
+	p,
+	ul,
+	ol,
+	blockquote  {
+		margin-bottom: 4%;
+	}
+
+	ul ul {
+		padding-top: 0;
+		margin-bottom: 0;
+		margin-left: 4%;
+	}
+
+	ul ul li:before {
+		content: '-';
+		display: inline-block;
+		padding-right: 2%;
+	}
+
+	ul.col-2 {
+		color: #98999C;
+		-webkit-column-count: 2;
+		-moz-column-count: 2;
+		column-count: 2;
+		-webkit-column-gap: 20px;
+		-moz-column-gap: 20px;
+		column-gap: 20px;
+	}
+
+	dl dt {
+		font-weight: bold;
+	}
+
+	dl dd {
+		padding-left: 10px;
+	}
+
+	@media screen and (min-width: 500px) {
+		ul.col-2 {
+			-webkit-column-count: 3;
+			-moz-column-count: 3;
+			column-count: 3;
+			-webkit-column-gap: 20px;
+			-moz-column-gap: 20px;
+			column-gap: 20px;
+		}
+	}
+
+	nav {
+		background: #F0F1F3;
+		min-width: 215px;
+		margin-bottom: 5px;
+		margin-top: 15px;
+	}
+
+	nav:first-of-type a {
+		color: #d54e21;
+		border-radius: 0;
+	}
+
+	nav:first-of-type a:hover {
+		color: #d54e21;
+	}
+
+	nav:first-of-type a:before {
+		background-color: #d54e21;
+	}
+
+	nav.affix {
+		position: fixed;
+		top: 20px;
+	}
+
+	nav.affix-bottom {
+		position: absolute;
+	}
+
+	nav a {
+		border-radius: 3px;
+		font-size: 15px;
+		display: block;
+		cursor: pointer;
+		font-weight: 500;
+		position: relative;
+		text-decoration: none;
+		padding: 10px 12px;
+		width: 100%;
+		padding-right: 3px;
+		border-bottom: 2px solid #fff;
+	}
+
+	nav a:before {
+		content: '';
+		width: 4px;
+		display: block;
+		left: 0;
+		position: absolute;
+		height: 100%;
+		display: none;
+		background: #1e8cbe;
+		top: 0;
+	}
+
+	nav a:hover {
+		background-color: #E6E8EA;
+		color: #1e8cbe;
+		text-decoration: underline;
+	}
+
+	nav a:hover:before {
+		display: block;
+	}
+
+	nav a:last-of-type {
+		border-bottom: none;
+	}
+
+	.gist {
+		margin-top: 5.1%;
+		margin-bottom: 5%;
+	}
+
+	@media screen and (max-width: 1050px) {
+		body {
+			margin: 0 auto;
+		}
+	}
+
+	@media screen and (max-width: 767px) {
+		header span {
+			display: none;
+		}
+
+		h1 {
+			font-size: 26px;
+		}
+
+		h2 {
+			font-size: 20px;
+		}
+	}
+
+	@media screen and (max-width: 514px) {
+		p,
+		ul,
+		ol,
+		blockquote  {
+			margin-bottom: 8%;
+		}
+	}
+</style>
+
+	</head>
+
+	<body>
+		<section id="Menu">
+			<header>
+				<h1>
+					Prometheus vCloud Director SD
+				</h1>
+
+				<p>
+					Prometheus service discovery for vCloud Director
+				</p>
+			</header>
+
+			<nav>
+				
+					<a href="#getting-started">
+						Getting Started
+					</a>
+				
+					<a href="#building">
+						Building
+					</a>
+				
+					<a href="#license">
+						License
+					</a>
+				
+			</nav>
+		</section>
+
+		
+			<section id="getting-started">
+				<h1>
+					<a href="#getting-started">
+						Getting Started
+					</a>
+
+					<small>
+						<a href="#html">
+							Back to Top
+						</a>
+					</small>
+				</h1>
+
+				<h2 id="installation">Installation</h2>
+
+<p>We won&rsquo;t cover further details how to properly setup <a href="https://prometheus.io">Prometheus</a> itself, we will only cover some basic setup based on <a href="https://docs.docker.com/compose/">docker-compose</a>. But if you want to run this service discovery without <a href="https://docs.docker.com/compose/">docker-compose</a> you should be able to adopt that to your needs.</p>
+
+<p>First of all we need to prepare a configuration for <a href="https://prometheus.io">Prometheus</a> that includes the service discovery which simply maps to a node exporter.</p>
+
+<script type="application/javascript" src="//gist.github.com/tboerger/b9c39b6571f48ce2b132de1531061531.js?file=prometheus.yml"></script>
+
+<p>After preparing the configuration we need to create the <code>docker-compose.yml</code> within the same folder, this <code>docker-compose.yml</code> starts a simple <a href="https://prometheus.io">Prometheus</a> instance together with the service discovery. Don&rsquo;t forget to update the envrionment variables with the required credentials. If you are using a different volume for the service discovery you have to make sure that the container user is allowed to write to this volume.</p>
+
+<script type="application/javascript" src="//gist.github.com/tboerger/b9c39b6571f48ce2b132de1531061531.js?file=docker-compose.yml"></script>
+
+<p>Since our <code>latest</code> Docker tag always refers to the <code>master</code> branch of the Git repository you should always use some fixed version. You can see all available tags at our <a href="https://hub.docker.com/r/promhippie/prometheus-vcd-sd/tags/">DockerHub repository</a>, there you will see that we also provide a manifest, you can easily start the exporter on various architectures without any change to the image name. You should apply a change like this to the <code>docker-compose.yml</code>:</p>
+
+<script type="application/javascript" src="//gist.github.com/tboerger/b9c39b6571f48ce2b132de1531061531.js?file=tag.diff"></script>
+
+<p>Depending on how you have launched and configured <a href="https://prometheus.io">Prometheus</a> it&rsquo;s possible that it&rsquo;s running as user <code>nobody</code>, in that case you should run the service discovery as this user as well, otherwise <a href="https://prometheus.io">Prometheus</a> won&rsquo;t be able to read the generated JSON file:</p>
+
+<script type="application/javascript" src="//gist.github.com/tboerger/b9c39b6571f48ce2b132de1531061531.js?file=userid.diff"></script>
+
+<p>Finally the service discovery should be configured fine, let&rsquo;s start this stack with <a href="https://docs.docker.com/compose/">docker-compose</a>, you just need to execute <code>docker-compose up</code> within the directory where you have stored <code>prometheus.yml</code> and <code>docker-compose.yml</code>.</p>
+
+<script type="application/javascript" src="//gist.github.com/tboerger/b9c39b6571f48ce2b132de1531061531.js?file=output.log"></script>
+
+<p>That&rsquo;s all, the service discovery should be up and running. You can access <a href="https://prometheus.io">Prometheus</a> at <a href="http://localhost:9090">http://localhost:9090</a>.</p>
+
+<figure>
+    <img src="service-discovery.png"/> <figcaption>
+            <h4>Prometheus service discovery for vCloud Director</h4>
+        </figcaption>
+</figure>
+
+<h2 id="kubernetes">Kubernetes</h2>
+
+<p>Currently we have not prepared a deployment for Kubernetes, but this is something we will provide for sure. Most interesting will be the integration into the <a href="https://coreos.com/operators/prometheus/docs/latest/">Prometheus Operator</a>, so stay tuned.</p>
+
+<h2 id="configuration">Configuration</h2>
+
+<h3 id="envrionment-variables">Envrionment variables</h3>
+
+<p>If you prefer to configure the service with environment variables you can see the available variables below, in case you want to configure multiple accounts with a single service you are forced to use the configuration file as the environment variables are limited to a single account. As the service is pretty lightweight you can even start an instance per account and configure it entirely by the variables, it&rsquo;s up to you.</p>
+
+<dl>
+<dt>PROMETHEUS_vcd_CONFIG<br /></dt>
+<dd>Path to vCloud Director configuration file, optionally, required for multi credentials<br />
+<br /></dd>
+<dt>PROMETHEUS_vcd_TOKEN<br /></dt>
+<dd>Access token for the vCloud Director API, required for authentication<br />
+<br /></dd>
+<dt>PROMETHEUS_vcd_LOG_LEVEL<br /></dt>
+<dd>Only log messages with given severity, defaults to <code>info</code><br />
+<br /></dd>
+<dt>PROMETHEUS_vcd_LOG_PRETTY<br /></dt>
+<dd>Enable pretty messages for logging, defaults to <code>true</code><br />
+<br /></dd>
+<dt>PROMETHEUS_vcd_WEB_ADDRESS<br /></dt>
+<dd>Address to bind the metrics server, defaults to <code>0.0.0.0:9000</code><br />
+<br /></dd>
+<dt>PROMETHEUS_vcd_WEB_PATH<br /></dt>
+<dd>Path to bind the metrics server, defaults to <code>/metrics</code><br />
+<br /></dd>
+<dt>PROMETHEUS_vcd_OUTPUT_FILE<br /></dt>
+<dd>Path to write the file_sd config, defaults to <code>/etc/prometheus/vcd.json</code><br />
+<br /></dd>
+<dt>PROMETHEUS_vcd_OUTPUT_REFRESH<br /></dt>
+<dd>Discovery refresh interval in seconds, defaults to <code>30</code><br />
+<br /></dd>
+</dl>
+
+<h3 id="configuration-file">Configuration file</h3>
+
+<p>Especially if you want to configure multiple accounts within a single service discovery you got to use the configuration file. So far we support the file formats <code>JSON</code> and <code>YAML</code>, if you want to get a full example configuration just take a look at <a href="https://github.com/promhippie/prometheus-vcd-sd/tree/master/config">our repository</a>, there you can always see the latest configuration format. These example configurations include all available options, they also include the default values.</p>
+
+<h2 id="labels">Labels</h2>
+
+<ul>
+<li><code>__address__</code><br /></li>
+<li><code>__meta_vcd_city</code><br /></li>
+<li><code>__meta_vcd_cores</code><br /></li>
+<li><code>__meta_vcd_country</code><br /></li>
+<li><code>__meta_vcd_cpu</code><br /></li>
+<li><code>__meta_vcd_datacenter</code><br /></li>
+<li><code>__meta_vcd_disk</code><br /></li>
+<li><code>__meta_vcd_image_name</code><br /></li>
+<li><code>__meta_vcd_image_type</code><br /></li>
+<li><code>__meta_vcd_label_&lt;label&gt;</code><br /></li>
+<li><code>__meta_vcd_location</code><br /></li>
+<li><code>__meta_vcd_memory</code><br /></li>
+<li><code>__meta_vcd_name</code><br /></li>
+<li><code>__meta_vcd_os_flavor</code><br /></li>
+<li><code>__meta_vcd_os_version</code><br /></li>
+<li><code>__meta_vcd_project</code><br /></li>
+<li><code>__meta_vcd_public_ipv4</code><br /></li>
+<li><code>__meta_vcd_public_ipv6</code><br /></li>
+<li><code>__meta_vcd_status</code><br /></li>
+<li><code>__meta_vcd_storage</code><br /></li>
+<li><code>__meta_vcd_type</code><br />
+<br /></li>
+</ul>
+
+<h2 id="metrics">Metrics</h2>
+
+<dl>
+<dt>prometheus_vcd_sd_request_duration_seconds<br /></dt>
+<dd>Histogram of latencies for requests to the vCloud Director API<br />
+<br /></dd>
+<dt>prometheus_vcd_sd_request_failures_total<br /></dt>
+<dd>Total number of failed requests to the vCloud Director API<br /></dd>
+</dl>
+
+			</section>
+		
+			<section id="building">
+				<h1>
+					<a href="#building">
+						Building
+					</a>
+
+					<small>
+						<a href="#html">
+							Back to Top
+						</a>
+					</small>
+				</h1>
+
+				<p>As this project is built with Go you need to install Go first. The installation of Go is out of the scope of this document, please follow the <a href="https://golang.org/doc/install">official documentation</a>. After the installation of Go you need to get the sources:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">git clone https://github.com/promhippie/prometheus-vcd-sd.git
+cd prometheus-vcd-sd/</code></pre></div>
+
+<p>All required tool besides Go itself are bundled by Go modules, all you need is part of the <code>Makfile</code>:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">make generate build</code></pre></div>
+
+<p>Finally you should have the binary within the <code>bin/</code> folder now, give it a try with <code>./bin/prometheus-vcd-sd -h</code> to see all available options.</p>
+
+			</section>
+		
+			<section id="license">
+				<h1>
+					<a href="#license">
+						License
+					</a>
+
+					<small>
+						<a href="#html">
+							Back to Top
+						</a>
+					</small>
+				</h1>
+
+				This project is licensed under the <a href="https://github.com/promhippie/prometheus-vcd-sd/blob/master/LICENSE">Apache 2.0</a> license. For the license of the used libraries you have to check the respective sources.
+			</section>
+		
+	</body>
+</html>
