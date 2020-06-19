@@ -8,6 +8,7 @@ type Credential struct {
 	Username string `json:"username" yaml:"username"`
 	Password string `json:"password" yaml:"password"`
 	Org      string `json:"org" yaml:"org"`
+	Vdc      string `json:"vdc" yaml:"vdc"`
 }
 
 // Server defines the general server configuration.

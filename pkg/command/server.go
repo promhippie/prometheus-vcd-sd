@@ -74,6 +74,12 @@ func Server(cfg *config.Config) *cli.Command {
 				EnvVars: []string{"PROMETHEUS_VCD_TOKEN"},
 			},
 			&cli.StringFlag{
+				Name:    "vcd.vdc",
+				Value:   "",
+				Usage:   "vDatacenter for the vCloud Director API",
+				EnvVars: []string{"PROMETHEUS_VCD_VDC"},
+			},
+			&cli.StringFlag{
 				Name:    "vcd.config",
 				Value:   "",
 				Usage:   "Path to vCloud Director configuration file",
@@ -102,7 +108,7 @@ func Server(cfg *config.Config) *cli.Command {
 				return errors.New("missing path for output.file")
 			}
 
-			if c.IsSet("vcd.url") && c.IsSet("vcd.username") && c.IsSet("vcd.password") && c.IsSet("vcd.org") {
+			if c.IsSet("vcd.url") && c.IsSet("vcd.username") && c.IsSet("vcd.password") && c.IsSet("vcd.org") && c.IsSet("vcd.vdc") {
 				credentials := config.Credential{
 					Project:  "default",
 					URL:      c.String("vcd.url"),
@@ -110,6 +116,7 @@ func Server(cfg *config.Config) *cli.Command {
 					Username: c.String("vcd.username"),
 					Password: c.String("vcd.password"),
 					Org:      c.String("vcd.org"),
+					Vdc:      c.String("vcd.vdc"),
 				}
 
 				cfg.Target.Credentials = append(
@@ -147,6 +154,14 @@ func Server(cfg *config.Config) *cli.Command {
 					)
 
 					return errors.New("missing required vcd.org")
+				}
+
+				if credentials.Vdc == "" {
+					level.Error(logger).Log(
+						"msg", "Missing required vcd.vdc",
+					)
+
+					return errors.New("missing required vcd.vdc")
 				}
 			}
 

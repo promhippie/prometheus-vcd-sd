@@ -35,7 +35,7 @@ func Server(cfg *config.Config, logger log.Logger) error {
 
 	{
 		ctx := context.Background()
-		clients := make(map[string]*govcd.VCDClient, len(cfg.Target.Credentials))
+		configs := make(map[string]*Config, len(cfg.Target.Credentials))
 
 		for _, credential := range cfg.Target.Credentials {
 			parsed, err := url.ParseRequestURI(credential.URL)
@@ -67,11 +67,15 @@ func Server(cfg *config.Config, logger log.Logger) error {
 				return ErrClientAuth
 			}
 
-			clients[credential.Project] = client
+			configs[credential.Project] = &Config{
+				client: client,
+				org:    credential.Org,
+				vdc:    credential.Vdc,
+			}
 		}
 
 		disc := Discoverer{
-			clients:   clients,
+			configs:   configs,
 			logger:    logger,
 			refresh:   cfg.Target.Refresh,
 			separator: ",",
