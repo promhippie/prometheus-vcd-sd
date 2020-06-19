@@ -1,0 +1,16 @@
+baseURL = "https://promhippie.github.io/prometheus-vcd-sd/"
+languageCode = "en-us"
+title = "Prometheus vCloud Director SD"
+pygmentsUseClasses = true
+
+[blackfriday]
+  angledQuotes = true
+  fractions = false
+  plainIDAnchors = true
+  smartlists = true
+  extensions = ["hardLineBreak"]
+
+[params]
+  author = "Thomas Boerger"
+  description = "Prometheus service discovery for vCloud Director"
+  keywords = "prometheus, sd, service, discovery, vcd, vcloud, vmware"

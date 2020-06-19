@@ -1,0 +1,38 @@
+{
+	"server": {
+		"addr": "0.0.0.0:9000",
+		"path": "/metrics"
+	},
+	"logs": {
+		"level": "error",
+		"pretty": false
+	},
+	"target": {
+		"file": "/etc/prometheus/vcd.json",
+		"refresh": 30,
+		"credentials": [
+			{
+				"project": "example1",
+				"url": "https://vcd.example.com/api",
+				"username": "username",
+				"password": "p455w0rd",
+				"org": "example-org1",
+				"insecure": true
+			},
+			{
+				"project": "example2",
+				"url": "https://vcd.example.com/api",
+				"username": "username",
+				"password": "p455w0rd",
+				"org": "example-org2"
+			},
+			{
+				"project": "example3",
+				"url": "https://vcd.example.com/api",
+				"username": "username",
+				"password": "p455w0rd",
+				"org": "example-org3"
+			}
+		]
+	}
+}
