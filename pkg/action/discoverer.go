@@ -150,9 +150,9 @@ func (d *Discoverer) getTargets(ctx context.Context) ([]*targetgroup.Group, erro
 					continue
 				}
 
-				nowVm := time.Now()
+				nowMachine := time.Now()
 				vm, err := vapp.GetVMByName(server.Name, false)
-				requestDuration.WithLabelValues(project, "vm").Observe(time.Since(nowVm).Seconds())
+				requestDuration.WithLabelValues(project, "vm").Observe(time.Since(nowMachine).Seconds())
 
 				if err != nil {
 					level.Warn(d.logger).Log(
