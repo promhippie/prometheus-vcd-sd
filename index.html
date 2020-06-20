@@ -492,7 +492,24 @@
 
 <p>Finally the service discovery should be configured fine, let&rsquo;s start this stack with <a href="https://docs.docker.com/compose/">docker-compose</a>, you just need to execute <code>docker-compose up</code> within the directory where you have stored <code>prometheus.yml</code> and <code>docker-compose.yml</code>.</p>
 
-<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt"></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">Creating network &#34;vcd-sd_default&#34; with the default driver
+Creating volume &#34;vcd-sd_prometheus&#34; with default driver
+Creating vcd-sd_vcd-exporter_1 ... done
+Creating vcd-sd_prometheus_1   ... done
+Attaching to vcd-sd_vcd-exporter_1, vcd-sd_prometheus_1
+prometheus_1    | level=info ts=2020-06-20T21:41:32.6738077Z caller=main.go:243 msg=&#34;Starting Prometheus&#34; version=&#34;(version=2.6.0, branch=HEAD, revision=dbd1d58c894775c0788470944b818cc724f550fb)&#34;
+prometheus_1    | level=info ts=2020-06-20T21:41:32.6739242Z caller=main.go:244 build_context=&#34;(go=go1.11.3, user=root@bf5760470f13, date=20181217-15:14:46)&#34;
+prometheus_1    | level=info ts=2020-06-20T21:41:32.6739553Z caller=main.go:245 host_details=&#34;(Linux 4.19.76-linuxkit #1 SMP Tue May 26 11:42:35 UTC 2020 x86_64 c40f124a0e86 (none))&#34;
+prometheus_1    | level=info ts=2020-06-20T21:41:32.6743456Z caller=main.go:246 fd_limits=&#34;(soft=1048576, hard=1048576)&#34;
+prometheus_1    | level=info ts=2020-06-20T21:41:32.6744037Z caller=main.go:247 vm_limits=&#34;(soft=unlimited, hard=unlimited)&#34;
+prometheus_1    | level=info ts=2020-06-20T21:41:32.6754939Z caller=main.go:561 msg=&#34;Starting TSDB ...&#34;
+prometheus_1    | level=info ts=2020-06-20T21:41:32.6759495Z caller=web.go:429 component=web msg=&#34;Start listening for connections&#34; address=0.0.0.0:9090
+prometheus_1    | level=info ts=2020-06-20T21:41:32.6832124Z caller=main.go:571 msg=&#34;TSDB started&#34;
+prometheus_1    | level=info ts=2020-06-20T21:41:32.6832976Z caller=main.go:631 msg=&#34;Loading configuration file&#34; filename=prometheus.yml
+prometheus_1    | level=info ts=2020-06-20T21:41:32.6862854Z caller=main.go:657 msg=&#34;Completed loading of configuration file&#34; filename=prometheus.yml
+prometheus_1    | level=info ts=2020-06-20T21:41:32.6863411Z caller=main.go:530 msg=&#34;Server is ready to receive web requests.&#34;
+vcd-exporter_1  | level=info ts=2020-06-20T21:41:33.1219629Z msg=&#34;Launching Prometheus vCloud Director SD&#34; version=1e2c111 revision=1e2c111 date=20200620 go=go1.14.2
+vcd-exporter_1  | level=info ts=2020-06-20T21:41:33.4333853Z msg=&#34;Starting metrics server&#34; addr=0.0.0.0:9000</code></pre></div>
 
 <p>That&rsquo;s all, the service discovery should be up and running. You can access <a href="https://prometheus.io">Prometheus</a> at <a href="http://localhost:9090">http://localhost:9090</a>.</p>
 
