@@ -79,9 +79,9 @@ func (d *Discoverer) getTargets(ctx context.Context) ([]*targetgroup.Group, erro
 	targets := make([]*targetgroup.Group, 0)
 
 	for project, config := range d.configs {
-		// 	now := time.Now()
-		org, err := config.client.GetOrgByName(config.org)
-		// 	requestDuration.WithLabelValues(project).Observe(time.Since(now).Seconds())
+		nowOrg := time.Now()
+		org, err := config.client.GetOrgByNameOrId(config.org)
+		requestDuration.WithLabelValues(project, "org").Observe(time.Since(nowOrg).Seconds())
 
 		if err != nil {
 			level.Warn(d.logger).Log(
@@ -90,13 +90,13 @@ func (d *Discoverer) getTargets(ctx context.Context) ([]*targetgroup.Group, erro
 				"err", err,
 			)
 
-			requestFailures.WithLabelValues(project).Inc()
+			requestFailures.WithLabelValues(project, "org").Inc()
 			continue
 		}
 
-		// 	now := time.Now()
-		vdc, err := org.GetVDCByName(config.vdc, false)
-		// 	requestDuration.WithLabelValues(project).Observe(time.Since(now).Seconds())
+		nowVdc := time.Now()
+		vdc, err := org.GetVDCByNameOrId(config.vdc, false)
+		requestDuration.WithLabelValues(project, "vdc").Observe(time.Since(nowVdc).Seconds())
 
 		if err != nil {
 			level.Warn(d.logger).Log(
@@ -105,7 +105,7 @@ func (d *Discoverer) getTargets(ctx context.Context) ([]*targetgroup.Group, erro
 				"err", err,
 			)
 
-			requestFailures.WithLabelValues(project).Inc()
+			requestFailures.WithLabelValues(project, "vdc").Inc()
 			continue
 		}
 
@@ -120,9 +120,9 @@ func (d *Discoverer) getTargets(ctx context.Context) ([]*targetgroup.Group, erro
 		}
 
 		for _, vappName := range vappNames {
-			// 	now := time.Now()
-			vapp, err := vdc.GetVAppByNameOrId(vappName, false)
-			// 	requestDuration.WithLabelValues(project).Observe(time.Since(now).Seconds())
+			nowVapp := time.Now()
+			vapp, err := vdc.GetVAppByName(vappName, false)
+			requestDuration.WithLabelValues(project, "vapp").Observe(time.Since(nowVapp).Seconds())
 
 			if err != nil {
 				level.Warn(d.logger).Log(
@@ -132,7 +132,7 @@ func (d *Discoverer) getTargets(ctx context.Context) ([]*targetgroup.Group, erro
 					"err", err,
 				)
 
-				requestFailures.WithLabelValues(project).Inc()
+				requestFailures.WithLabelValues(project, "vapp").Inc()
 				continue
 			}
 
@@ -150,56 +150,83 @@ func (d *Discoverer) getTargets(ctx context.Context) ([]*targetgroup.Group, erro
 					continue
 				}
 
-				// // 	now := time.Now()
-				// metadata, err := vapp.GetMetadata()
-				// // 	requestDuration.WithLabelValues(project).Observe(time.Since(now).Seconds())
+				nowVm := time.Now()
+				vm, err := vapp.GetVMByName(server.Name, false)
+				requestDuration.WithLabelValues(project, "vm").Observe(time.Since(nowVm).Seconds())
 
-				// if err != nil {
-				// 	level.Warn(d.logger).Log(
-				// 		"msg", "Failed to fetch metadata",
-				// 		"project", project,
-				// 		"vapp", vappName,
-				// 		"err", err,
-				// 	)
+				if err != nil {
+					level.Warn(d.logger).Log(
+						"msg", "Failed to fetch vm",
+						"project", project,
+						"vapp", vappName,
+						"server", server.Name,
+						"err", err,
+					)
 
-				// 	requestFailures.WithLabelValues(project).Inc()
-				// 	continue
-				// }
+					requestFailures.WithLabelValues(project, "vm").Inc()
+					continue
+				}
+
+				nowMeta := time.Now()
+				metadata, err := vm.GetMetadata()
+				requestDuration.WithLabelValues(project, "metadata").Observe(time.Since(nowMeta).Seconds())
+
+				if err != nil {
+					level.Warn(d.logger).Log(
+						"msg", "Failed to fetch metadata",
+						"project", project,
+						"vapp", vappName,
+						"server", server.Name,
+						"err", err,
+					)
+
+					requestFailures.WithLabelValues(project, "metadata").Inc()
+					continue
+				}
 
 				target := &targetgroup.Group{
-					Source: fmt.Sprintf("vcd/%s", server.ID),
+					Source: fmt.Sprintf("vcd/%s", vm.VM.ID),
 					Targets: []model.LabelSet{
 						{
-							model.AddressLabel: model.LabelValue(server.NetworkConnectionSection.NetworkConnection[0].IPAddress),
+							model.AddressLabel: model.LabelValue(vm.VM.NetworkConnectionSection.NetworkConnection[0].IPAddress),
 						},
 					},
 					Labels: model.LabelSet{
-						model.AddressLabel:                      model.LabelValue(server.NetworkConnectionSection.NetworkConnection[0].IPAddress),
-						model.LabelName(projectLabel):           model.LabelValue(project),
-						model.LabelName(orgLabel):               model.LabelValue(config.org),
-						model.LabelName(vdcLabel):               model.LabelValue(config.vdc),
-						model.LabelName(nameLabel):              model.LabelValue(server.Name),
-						model.LabelName(statusLabel):            model.LabelValue(strconv.Itoa(server.Status)),
-						model.LabelName(osTypeLabel):            model.LabelValue(server.VmSpecSection.OsType),
-						model.LabelName(numCpusLabel):           model.LabelValue(strconv.Itoa(*server.VmSpecSection.NumCpus)),
-						model.LabelName(numCoresPerSocketLabel): model.LabelValue(strconv.Itoa(*server.VmSpecSection.NumCoresPerSocket)),
-						model.LabelName(storageProfileLabel):    model.LabelValue(server.StorageProfile.Name),
+						model.AddressLabel:            model.LabelValue(vm.VM.NetworkConnectionSection.NetworkConnection[0].IPAddress),
+						model.LabelName(projectLabel): model.LabelValue(project),
+						model.LabelName(orgLabel):     model.LabelValue(config.org),
+						model.LabelName(vdcLabel):     model.LabelValue(config.vdc),
+						model.LabelName(nameLabel):    model.LabelValue(vm.VM.Name),
+						model.LabelName(statusLabel):  model.LabelValue(strconv.Itoa(vm.VM.Status)),
 					},
 				}
 
-				for _, network := range server.NetworkConnectionSection.NetworkConnection {
+				if vm.VM.VmSpecSection != nil {
+					target.Labels[model.LabelName(osTypeLabel)] = model.LabelValue(vm.VM.VmSpecSection.OsType)
+				}
+
+				if vm.VM.VmSpecSection != nil {
+					target.Labels[model.LabelName(numCpusLabel)] = model.LabelValue(strconv.Itoa(*vm.VM.VmSpecSection.NumCpus))
+					target.Labels[model.LabelName(numCoresPerSocketLabel)] = model.LabelValue(strconv.Itoa(*vm.VM.VmSpecSection.NumCoresPerSocket))
+				}
+
+				if vm.VM.StorageProfile != nil {
+					target.Labels[model.LabelName(storageProfileLabel)] = model.LabelValue(vm.VM.StorageProfile.Name)
+				}
+
+				for _, network := range vm.VM.NetworkConnectionSection.NetworkConnection {
 					target.Labels[model.LabelName(networkPrefix+strings.ToLower(network.Network))] = model.LabelValue(network.IPAddress)
 				}
 
-				// for _, entry := range metadata.MetadataEntry {
-				// 	target.Labels[model.LabelName(metadataPrefix+strings.ToLower(entry.Key))] = model.LabelValue(entry.TypedValue.Value)
-				// }
+				for _, entry := range metadata.MetadataEntry {
+					target.Labels[model.LabelName(metadataPrefix+strings.ToLower(entry.Key))] = model.LabelValue(entry.TypedValue.Value)
+				}
 
 				level.Debug(d.logger).Log(
 					"msg", "Server added",
 					"project", project,
 					"vapp", vappName,
-					"server", server.Name,
+					"server", vm.VM.Name,
 					"source", target.Source,
 				)
 

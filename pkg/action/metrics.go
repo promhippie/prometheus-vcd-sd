@@ -22,7 +22,7 @@ var (
 			Help:      "Histogram of latencies for requests to the vCloud Director API.",
 			Buckets:   []float64{0.001, 0.01, 0.1, 0.5, 1.0, 2.0, 5.0, 10.0},
 		},
-		[]string{"project"},
+		[]string{"project", "type"},
 	)
 
 	requestFailures = prometheus.NewCounterVec(
@@ -31,7 +31,7 @@ var (
 			Name:      "request_failures_total",
 			Help:      "Total number of failed requests to the vCloud Director API.",
 		},
-		[]string{"project"},
+		[]string{"project", "type"},
 	)
 )
 
