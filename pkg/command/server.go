@@ -47,7 +47,7 @@ func Server(cfg *config.Config) *cli.Command {
 				Name:    "vcd.url",
 				Value:   "",
 				Usage:   "URL for the vCloud Director API",
-				EnvVars: []string{"PROMETHEUS_VCD_TOKEN"},
+				EnvVars: []string{"PROMETHEUS_VCD_URL"},
 			},
 			&cli.BoolFlag{
 				Name:    "vcd.insecure",
@@ -59,19 +59,19 @@ func Server(cfg *config.Config) *cli.Command {
 				Name:    "vcd.username",
 				Value:   "",
 				Usage:   "Username for the vCloud Director API",
-				EnvVars: []string{"PROMETHEUS_VCD_TOKEN"},
+				EnvVars: []string{"PROMETHEUS_VCD_USERNAME"},
 			},
 			&cli.StringFlag{
 				Name:    "vcd.password",
 				Value:   "",
 				Usage:   "Password for the vCloud Director API",
-				EnvVars: []string{"PROMETHEUS_VCD_TOKEN"},
+				EnvVars: []string{"PROMETHEUS_VCD_PASSWORD"},
 			},
 			&cli.StringFlag{
 				Name:    "vcd.org",
 				Value:   "",
 				Usage:   "Organization for the vCloud Director API",
-				EnvVars: []string{"PROMETHEUS_VCD_TOKEN"},
+				EnvVars: []string{"PROMETHEUS_VCD_ORG"},
 			},
 			&cli.StringFlag{
 				Name:    "vcd.vdc",
