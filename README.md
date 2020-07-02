@@ -36,7 +36,7 @@ The following list of meta labels can be used to relabel your scrape results ent
 
 Here you get a snippet for the Prometheus `scrape_config` that configures Prometheus to scrape `node_exporter` assuming that it is deployed on all your servers.
 
-```
+```yml
 - job_name: node
   file_sd_configs:
   - files: [ "/etc/prometheus/vcd.json" ]
@@ -54,7 +54,7 @@ Here you get a snippet for the Prometheus `scrape_config` that configures Promet
 
 Make sure you have a working Go environment, for further reference or a guide take a look at the [install instructions](http://golang.org/doc/install.html). This project requires Go >= v1.11.
 
-```bash
+```console
 git clone https://github.com/promhippie/prometheus-vcd-sd.git
 cd prometheus-vcd-sd
 
