@@ -12,7 +12,7 @@ import (
 	"github.com/go-kit/kit/log/level"
 	"github.com/prometheus/common/model"
 	"github.com/prometheus/prometheus/discovery/targetgroup"
-	"github.com/vmware/go-vcloud-director/v2/govcd"
+	"github.com/promhippie/prometheus-vcd-sd/pkg/client"
 )
 
 const (
@@ -33,21 +33,11 @@ const (
 var (
 	// ErrClientEndpoint defines an error if the client auth fails.
 	ErrClientEndpoint = errors.New("failed to parse api url")
-
-	// ErrClientAuth defines an error if the client auth fails.
-	ErrClientAuth = errors.New("failed to authenticate client")
 )
-
-// Config wraps the vCloud Director client including org and vdc names.
-type Config struct {
-	client *govcd.VCDClient
-	org    string
-	vdc    string
-}
 
 // Discoverer implements the Prometheus discoverer interface.
 type Discoverer struct {
-	configs   map[string]*Config
+	configs   map[string]*client.Client
 	logger    log.Logger
 	refresh   int
 	separator string
@@ -79,8 +69,21 @@ func (d *Discoverer) getTargets(ctx context.Context) ([]*targetgroup.Group, erro
 	targets := make([]*targetgroup.Group, 0)
 
 	for project, config := range d.configs {
+		if err := config.Authenticate(); err != nil {
+			level.Warn(d.logger).Log(
+				"msg", "Failed to authenticate",
+				"project", project,
+				"err", err,
+			)
+
+			requestFailures.WithLabelValues(project, "auth").Inc()
+			continue
+		}
+
+		defer config.Disconnect()
+
 		nowOrg := time.Now()
-		org, err := config.client.GetOrgByNameOrId(config.org)
+		org, err := config.Upstream.GetOrgByNameOrId(config.Organization)
 		requestDuration.WithLabelValues(project, "org").Observe(time.Since(nowOrg).Seconds())
 
 		if err != nil {
@@ -95,7 +98,7 @@ func (d *Discoverer) getTargets(ctx context.Context) ([]*targetgroup.Group, erro
 		}
 
 		nowVdc := time.Now()
-		vdc, err := org.GetVDCByNameOrId(config.vdc, false)
+		vdc, err := org.GetVDCByNameOrId(config.Datacenter, false)
 		requestDuration.WithLabelValues(project, "vdc").Observe(time.Since(nowVdc).Seconds())
 
 		if err != nil {
@@ -194,8 +197,8 @@ func (d *Discoverer) getTargets(ctx context.Context) ([]*targetgroup.Group, erro
 					Labels: model.LabelSet{
 						model.AddressLabel:            model.LabelValue(vm.VM.NetworkConnectionSection.NetworkConnection[0].IPAddress),
 						model.LabelName(projectLabel): model.LabelValue(project),
-						model.LabelName(orgLabel):     model.LabelValue(config.org),
-						model.LabelName(vdcLabel):     model.LabelValue(config.vdc),
+						model.LabelName(orgLabel):     model.LabelValue(config.Organization),
+						model.LabelName(vdcLabel):     model.LabelValue(config.Datacenter),
 						model.LabelName(nameLabel):    model.LabelValue(vm.VM.Name),
 						model.LabelName(statusLabel):  model.LabelValue(strconv.Itoa(vm.VM.Status)),
 					},
@@ -234,6 +237,8 @@ func (d *Discoverer) getTargets(ctx context.Context) ([]*targetgroup.Group, erro
 				targets = append(targets, target)
 			}
 		}
+
+		config.Disconnect()
 	}
 
 	for k := range d.lasts {
