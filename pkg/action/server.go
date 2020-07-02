@@ -15,10 +15,10 @@ import (
 	"github.com/oklog/run"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/promhippie/prometheus-vcd-sd/pkg/adapter"
+	"github.com/promhippie/prometheus-vcd-sd/pkg/client"
 	"github.com/promhippie/prometheus-vcd-sd/pkg/config"
 	"github.com/promhippie/prometheus-vcd-sd/pkg/middleware"
 	"github.com/promhippie/prometheus-vcd-sd/pkg/version"
-	"github.com/vmware/go-vcloud-director/v2/govcd"
 )
 
 // Server handles the server sub-command.
@@ -35,7 +35,7 @@ func Server(cfg *config.Config, logger log.Logger) error {
 
 	{
 		ctx := context.Background()
-		configs := make(map[string]*Config, len(cfg.Target.Credentials))
+		configs := make(map[string]*client.Client, len(cfg.Target.Credentials))
 
 		for _, credential := range cfg.Target.Credentials {
 			parsed, err := url.ParseRequestURI(credential.URL)
@@ -49,29 +49,14 @@ func Server(cfg *config.Config, logger log.Logger) error {
 				return ErrClientEndpoint
 			}
 
-			client := govcd.NewVCDClient(
-				*parsed,
+			configs[credential.Project] = client.New(
+				parsed,
 				credential.Insecure,
-			)
-
-			if err := client.Authenticate(
 				credential.Username,
 				credential.Password,
 				credential.Org,
-			); err != nil {
-				level.Error(logger).Log(
-					"msg", ErrClientAuth,
-					"project", credential.Project,
-				)
-
-				return ErrClientAuth
-			}
-
-			configs[credential.Project] = &Config{
-				client: client,
-				org:    credential.Org,
-				vdc:    credential.Vdc,
-			}
+				credential.Vdc,
+			)
 		}
 
 		disc := Discoverer{
