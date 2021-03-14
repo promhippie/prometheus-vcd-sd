@@ -1,8 +1,10 @@
 ---
 exclude_paths:
-  - .github/*.md
-  - CODE_OF_CONDUCT.md
+  - .github/**
+  - .bingo/**
+  - changelog/**
+  - docs/**
+
   - CHANGELOG.md
-  - changelog/**/*.md
 
 ...
