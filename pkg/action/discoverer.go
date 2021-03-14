@@ -218,11 +218,27 @@ func (d *Discoverer) getTargets(ctx context.Context) ([]*targetgroup.Group, erro
 				}
 
 				for _, network := range vm.VM.NetworkConnectionSection.NetworkConnection {
-					target.Labels[model.LabelName(networkPrefix+strings.ToLower(network.Network))] = model.LabelValue(network.IPAddress)
+					normalied := strings.ToLower(
+						strings.ReplaceAll(
+							network.Network,
+							"-",
+							"_",
+						),
+					)
+
+					target.Labels[model.LabelName(networkPrefix+normalied)] = model.LabelValue(network.IPAddress)
 				}
 
 				for _, entry := range metadata.MetadataEntry {
-					target.Labels[model.LabelName(metadataPrefix+strings.ToLower(entry.Key))] = model.LabelValue(entry.TypedValue.Value)
+					normalized := strings.ToLower(
+						strings.ReplaceAll(
+							entry.Key,
+							"-",
+							"_",
+						),
+					)
+
+					target.Labels[model.LabelName(metadataPrefix+normalized)] = model.LabelValue(entry.TypedValue.Value)
 				}
 
 				level.Debug(d.logger).Log(
