@@ -139,6 +139,16 @@ func (d *Discoverer) getTargets(ctx context.Context) ([]*targetgroup.Group, erro
 				continue
 			}
 
+			if vapp.VApp.Children == nil {
+				level.Debug(d.logger).Log(
+					"msg", "No servers defined",
+					"project", project,
+					"vapp", vappName,
+				)
+
+				continue
+			}
+
 			servers := vapp.VApp.Children.VM
 
 			level.Debug(d.logger).Log(
