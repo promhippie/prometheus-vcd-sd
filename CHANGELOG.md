@@ -4,11 +4,28 @@ The following sections list the changes for unreleased.
 
 ## Summary
 
+ * Fix #10: Fix nil pointer if vApp doesn't provide a VM
+ * Fix #5: Normalize labels for networks
  * Chg #6: Use bingo for development tooling
  * Chg #7: Update Go version and dependencies
  * Chg #8: Drop dariwn/386 release builds
 
 ## Details
+
+ * Bugfix #10: Fix nil pointer if vApp doesn't provide a VM
+
+   We have added a check if a vApp really provides children to avoid a panic because of nil pointer
+   dereference within the vCD client SDK. Without this fix the service discovery panics on empty
+   vApp.
+
+   https://github.com/promhippie/prometheus-vcd-sd/issues/10
+
+ * Bugfix #5: Normalize labels for networks
+
+   We have applied a fix to properly normalize names of networks attached to VMs, before this patch
+   the labels could include dashes, which is an invalid label for prometheus.
+
+   https://github.com/promhippie/prometheus-vcd-sd/issues/5
 
  * Change #6: Use bingo for development tooling
 
