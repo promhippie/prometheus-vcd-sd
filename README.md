@@ -22,6 +22,7 @@ The following list of meta labels can be used to relabel your scrape results ent
 -   `__address__`
 -   `__meta_vcd_metadata_<name>`
 -   `__meta_vcd_name`
+-   `__meta_vcd_id`
 -   `__meta_vcd_network_<name>`
 -   `__meta_vcd_num_cores_per_socket`
 -   `__meta_vcd_num_cpus`

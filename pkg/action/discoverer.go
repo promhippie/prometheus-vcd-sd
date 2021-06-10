@@ -21,6 +21,7 @@ const (
 	orgLabel               = vcdPrefix + "org"
 	vdcLabel               = vcdPrefix + "vdc"
 	nameLabel              = vcdPrefix + "name"
+	idLabel                = vcdPrefix + "id"
 	statusLabel            = vcdPrefix + "status"
 	osTypeLabel            = vcdPrefix + "os_type"
 	numCpusLabel           = vcdPrefix + "num_cpus"
@@ -173,6 +174,7 @@ func (d *Discoverer) getTargets(ctx context.Context) ([]*targetgroup.Group, erro
 						"project", project,
 						"vapp", vappName,
 						"server", server.Name,
+						"ID", server.ID,
 						"err", err,
 					)
 
@@ -190,6 +192,7 @@ func (d *Discoverer) getTargets(ctx context.Context) ([]*targetgroup.Group, erro
 						"project", project,
 						"vapp", vappName,
 						"server", server.Name,
+						"ID", server.ID,
 						"err", err,
 					)
 
@@ -210,6 +213,7 @@ func (d *Discoverer) getTargets(ctx context.Context) ([]*targetgroup.Group, erro
 						model.LabelName(orgLabel):     model.LabelValue(config.Organization),
 						model.LabelName(vdcLabel):     model.LabelValue(config.Datacenter),
 						model.LabelName(nameLabel):    model.LabelValue(vm.VM.Name),
+						model.LabelName(idLabel):      model.LabelValue(vm.VM.ID),
 						model.LabelName(statusLabel):  model.LabelValue(strconv.Itoa(vm.VM.Status)),
 					},
 				}
