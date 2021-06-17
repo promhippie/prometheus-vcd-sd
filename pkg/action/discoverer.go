@@ -174,7 +174,7 @@ func (d *Discoverer) getTargets(ctx context.Context) ([]*targetgroup.Group, erro
 						"project", project,
 						"vapp", vappName,
 						"server", server.Name,
-						"ID", server.ID,
+						"id", server.ID,
 						"err", err,
 					)
 
@@ -192,7 +192,7 @@ func (d *Discoverer) getTargets(ctx context.Context) ([]*targetgroup.Group, erro
 						"project", project,
 						"vapp", vappName,
 						"server", server.Name,
-						"ID", server.ID,
+						"id", server.ID,
 						"err", err,
 					)
 
