@@ -105,36 +105,9 @@ Depending on how you have launched and configured [Prometheus](https://prometheu
       - ./service-discovery:/etc/sd
 {{< / highlight >}}
 
-Finally the service discovery should be configured fine, let's start this stack with [docker-compose](https://docs.docker.com/compose/), you just need to execute `docker-compose up` within the directory where you have stored `prometheus.yml` and `docker-compose.yml`.
-
-{{< highlight txt >}}
-Creating network "vcd-sd_default" with the default driver
-Creating volume "vcd-sd_prometheus" with default driver
-Creating vcd-sd_vcd-exporter_1 ... done
-Creating vcd-sd_prometheus_1   ... done
-Attaching to vcd-sd_vcd-exporter_1, vcd-sd_prometheus_1
-prometheus_1    | level=info ts=2020-06-20T21:41:32.6738077Z caller=main.go:243 msg="Starting Prometheus" version="(version=2.6.0, branch=HEAD, revision=dbd1d58c894775c0788470944b818cc724f550fb)"
-prometheus_1    | level=info ts=2020-06-20T21:41:32.6739242Z caller=main.go:244 build_context="(go=go1.11.3, user=root@bf5760470f13, date=20181217-15:14:46)"
-prometheus_1    | level=info ts=2020-06-20T21:41:32.6739553Z caller=main.go:245 host_details="(Linux 4.19.76-linuxkit #1 SMP Tue May 26 11:42:35 UTC 2020 x86_64 c40f124a0e86 (none))"
-prometheus_1    | level=info ts=2020-06-20T21:41:32.6743456Z caller=main.go:246 fd_limits="(soft=1048576, hard=1048576)"
-prometheus_1    | level=info ts=2020-06-20T21:41:32.6744037Z caller=main.go:247 vm_limits="(soft=unlimited, hard=unlimited)"
-prometheus_1    | level=info ts=2020-06-20T21:41:32.6754939Z caller=main.go:561 msg="Starting TSDB ..."
-prometheus_1    | level=info ts=2020-06-20T21:41:32.6759495Z caller=web.go:429 component=web msg="Start listening for connections" address=0.0.0.0:9090
-prometheus_1    | level=info ts=2020-06-20T21:41:32.6832124Z caller=main.go:571 msg="TSDB started"
-prometheus_1    | level=info ts=2020-06-20T21:41:32.6832976Z caller=main.go:631 msg="Loading configuration file" filename=prometheus.yml
-prometheus_1    | level=info ts=2020-06-20T21:41:32.6862854Z caller=main.go:657 msg="Completed loading of configuration file" filename=prometheus.yml
-prometheus_1    | level=info ts=2020-06-20T21:41:32.6863411Z caller=main.go:530 msg="Server is ready to receive web requests."
-vcd-exporter_1  | level=info ts=2020-06-20T21:41:33.1219629Z msg="Launching Prometheus vCloud Director SD" version=1e2c111 revision=1e2c111 date=20200620 go=go1.14.2
-vcd-exporter_1  | level=info ts=2020-06-20T21:41:33.4333853Z msg="Starting metrics server" addr=0.0.0.0:9000
-{{< / highlight >}}
-
-That's all, the service discovery should be up and running. You can access [Prometheus](https://prometheus.io) at [http://localhost:9090](http://localhost:9090).
+Finally the service discovery should be configured fine, let's start this stack with [docker-compose](https://docs.docker.com/compose/), you just need to execute `docker-compose up` within the directory where you have stored `prometheus.yml` and `docker-compose.yml`. That's all, the service discovery should be up and running. You can access [Prometheus](https://prometheus.io) at [http://localhost:9090](http://localhost:9090).
 
 {{< figure src="service-discovery.png" title="Prometheus service discovery for vCloud Director" >}}
-
-## Kubernetes
-
-Currently we have not prepared a deployment for Kubernetes, but this is something we will provide for sure. Most interesting will be the integration into the [Prometheus Operator](https://coreos.com/operators/prometheus/docs/latest/), so stay tuned.
 
 ## Configuration
 
@@ -142,44 +115,7 @@ Currently we have not prepared a deployment for Kubernetes, but this is somethin
 
 If you prefer to configure the service with environment variables you can see the available variables below, in case you want to configure multiple accounts with a single service you are forced to use the configuration file as the environment variables are limited to a single account. As the service is pretty lightweight you can even start an instance per account and configure it entirely by the variables, it's up to you.
 
-PROMETHEUS_VCD_CONFIG
-: Path to vCloud Director configuration file, optionally, required for multi credentials
-
-PROMETHEUS_VCD_URL
-: URL for the vCloud Director API, required for authentication
-
-PROMETHEUS_VCD_INSECURE
-: Insecure access for the vCloud Director API, required for authentication
-
-PROMETHEUS_VCD_USERNAME
-: Username for the vCloud Director API, required for authentication
-
-PROMETHEUS_VCD_PASSWORD
-: Password for the vCloud Director API, required for authentication
-
-PROMETHEUS_VCD_ORG
-: Organization for the vCloud Director API, required for authentication
-
-PROMETHEUS_VCD_VDC
-: vDatacenter for the vCloud Director API, required for authentication
-
-PROMETHEUS_VCD_LOG_LEVEL
-: Only log messages with given severity, defaults to `info`
-
-PROMETHEUS_VCD_LOG_PRETTY
-: Enable pretty messages for logging, defaults to `true`
-
-PROMETHEUS_VCD_WEB_ADDRESS
-: Address to bind the metrics server, defaults to `0.0.0.0:9000`
-
-PROMETHEUS_VCD_WEB_PATH
-: Path to bind the metrics server, defaults to `/metrics`
-
-PROMETHEUS_VCD_OUTPUT_FILE
-: Path to write the file_sd config, defaults to `/etc/prometheus/vcd.json`
-
-PROMETHEUS_VCD_OUTPUT_REFRESH
-: Discovery refresh interval in seconds, defaults to `30`
+{{< partial "envvars.md" >}}
 
 ### Configuration file
 
@@ -187,23 +123,12 @@ Especially if you want to configure multiple accounts within a single service di
 
 ## Labels
 
-* `__address__`
-* `__meta_vcd_metadata_<name>`
-* `__meta_vcd_name`
-* `__meta_vcd_network_<name>`
-* `__meta_vcd_num_cores_per_socket`
-* `__meta_vcd_num_cpus`
-* `__meta_vcd_org`
-* `__meta_vcd_os_type`
-* `__meta_vcd_project`
-* `__meta_vcd_status`
-* `__meta_vcd_storage_profile`
-* `__meta_vcd_vdc`
+{{< partial "labels.md" >}}
 
 ## Metrics
 
-prometheus_vcd_sd_request_duration_seconds
+prometheus_vcd_sd_request_duration_seconds{project, type}
 : Histogram of latencies for requests to the vCloud Director API
 
-prometheus_vcd_sd_request_failures_total
+prometheus_vcd_sd_request_failures_total{project, type}
 : Total number of failed requests to the vCloud Director API
