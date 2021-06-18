@@ -15,23 +15,26 @@ import (
 	"github.com/promhippie/prometheus-vcd-sd/pkg/client"
 )
 
-const (
-	vcdPrefix              = model.MetaLabelPrefix + "vcd_"
-	projectLabel           = vcdPrefix + "project"
-	orgLabel               = vcdPrefix + "org"
-	vdcLabel               = vcdPrefix + "vdc"
-	nameLabel              = vcdPrefix + "name"
-	idLabel                = vcdPrefix + "id"
-	statusLabel            = vcdPrefix + "status"
-	osTypeLabel            = vcdPrefix + "os_type"
-	numCpusLabel           = vcdPrefix + "num_cpus"
-	numCoresPerSocketLabel = vcdPrefix + "num_cores_per_socket"
-	storageProfileLabel    = vcdPrefix + "storage_profile"
-	networkPrefix          = vcdPrefix + "network_"
-	metadataPrefix         = vcdPrefix + "metadata_"
-)
-
 var (
+	// providerPrefix defines the general prefix for all labels.
+	providerPrefix = model.MetaLabelPrefix + "vcd_"
+
+	// Labels defines all available labels for this provider.
+	Labels = map[string]string{
+		"id":                providerPrefix + "id",
+		"metadataPrefix":    providerPrefix + "metadata_",
+		"name":              providerPrefix + "name",
+		"networkPrefix":     providerPrefix + "network_",
+		"numCoresPerSocket": providerPrefix + "num_cores_per_socket",
+		"numCpus":           providerPrefix + "num_cpus",
+		"org":               providerPrefix + "org",
+		"osType":            providerPrefix + "os_type",
+		"project":           providerPrefix + "project",
+		"status":            providerPrefix + "status",
+		"storageProfile":    providerPrefix + "storage_profile",
+		"vdc":               providerPrefix + "vdc",
+	}
+
 	// ErrClientEndpoint defines an error if the client auth fails.
 	ErrClientEndpoint = errors.New("failed to parse api url")
 )
@@ -208,27 +211,27 @@ func (d *Discoverer) getTargets(ctx context.Context) ([]*targetgroup.Group, erro
 						},
 					},
 					Labels: model.LabelSet{
-						model.AddressLabel:            model.LabelValue(vm.VM.NetworkConnectionSection.NetworkConnection[0].IPAddress),
-						model.LabelName(projectLabel): model.LabelValue(project),
-						model.LabelName(orgLabel):     model.LabelValue(config.Organization),
-						model.LabelName(vdcLabel):     model.LabelValue(config.Datacenter),
-						model.LabelName(nameLabel):    model.LabelValue(vm.VM.Name),
-						model.LabelName(idLabel):      model.LabelValue(vm.VM.ID),
-						model.LabelName(statusLabel):  model.LabelValue(strconv.Itoa(vm.VM.Status)),
+						model.AddressLabel:                 model.LabelValue(vm.VM.NetworkConnectionSection.NetworkConnection[0].IPAddress),
+						model.LabelName(Labels["project"]): model.LabelValue(project),
+						model.LabelName(Labels["org"]):     model.LabelValue(config.Organization),
+						model.LabelName(Labels["vdc"]):     model.LabelValue(config.Datacenter),
+						model.LabelName(Labels["name"]):    model.LabelValue(vm.VM.Name),
+						model.LabelName(Labels["id"]):      model.LabelValue(vm.VM.ID),
+						model.LabelName(Labels["status"]):  model.LabelValue(strconv.Itoa(vm.VM.Status)),
 					},
 				}
 
 				if vm.VM.VmSpecSection != nil {
-					target.Labels[model.LabelName(osTypeLabel)] = model.LabelValue(vm.VM.VmSpecSection.OsType)
+					target.Labels[model.LabelName(Labels["osType"])] = model.LabelValue(vm.VM.VmSpecSection.OsType)
 				}
 
 				if vm.VM.VmSpecSection != nil {
-					target.Labels[model.LabelName(numCpusLabel)] = model.LabelValue(strconv.Itoa(*vm.VM.VmSpecSection.NumCpus))
-					target.Labels[model.LabelName(numCoresPerSocketLabel)] = model.LabelValue(strconv.Itoa(*vm.VM.VmSpecSection.NumCoresPerSocket))
+					target.Labels[model.LabelName(Labels["numCpus"])] = model.LabelValue(strconv.Itoa(*vm.VM.VmSpecSection.NumCpus))
+					target.Labels[model.LabelName(Labels["numCoresPerSocket"])] = model.LabelValue(strconv.Itoa(*vm.VM.VmSpecSection.NumCoresPerSocket))
 				}
 
 				if vm.VM.StorageProfile != nil {
-					target.Labels[model.LabelName(storageProfileLabel)] = model.LabelValue(vm.VM.StorageProfile.Name)
+					target.Labels[model.LabelName(Labels["storageProfile"])] = model.LabelValue(vm.VM.StorageProfile.Name)
 				}
 
 				for _, network := range vm.VM.NetworkConnectionSection.NetworkConnection {
@@ -240,7 +243,7 @@ func (d *Discoverer) getTargets(ctx context.Context) ([]*targetgroup.Group, erro
 						),
 					)
 
-					target.Labels[model.LabelName(networkPrefix+normalied)] = model.LabelValue(network.IPAddress)
+					target.Labels[model.LabelName(Labels["networkPrefix"]+normalied)] = model.LabelValue(network.IPAddress)
 				}
 
 				for _, entry := range metadata.MetadataEntry {
@@ -252,7 +255,7 @@ func (d *Discoverer) getTargets(ctx context.Context) ([]*targetgroup.Group, erro
 						),
 					)
 
-					target.Labels[model.LabelName(metadataPrefix+normalized)] = model.LabelValue(entry.TypedValue.Value)
+					target.Labels[model.LabelName(Labels["metadataPrefix"]+normalized)] = model.LabelValue(entry.TypedValue.Value)
 				}
 
 				level.Debug(d.logger).Log(
