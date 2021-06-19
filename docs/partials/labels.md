@@ -1,0 +1,13 @@
+* `__address__`
+* `__meta_vcd_id`
+* `__meta_vcd_metadata_<name>`
+* `__meta_vcd_name`
+* `__meta_vcd_network_<name>`
+* `__meta_vcd_num_cores_per_socket`
+* `__meta_vcd_num_cpus`
+* `__meta_vcd_org`
+* `__meta_vcd_os_type`
+* `__meta_vcd_project`
+* `__meta_vcd_status`
+* `__meta_vcd_storage_profile`
+* `__meta_vcd_vdc`
