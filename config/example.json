@@ -1,41 +1,42 @@
 {
-	"server": {
-		"addr": "0.0.0.0:9000",
-		"path": "/metrics"
-	},
-	"logs": {
-		"level": "error",
-		"pretty": false
-	},
-	"target": {
-		"file": "/etc/prometheus/vcd.json",
-		"refresh": 30,
-		"credentials": [
-			{
-				"project": "example1",
-				"url": "https://vcd.example.com/api",
-				"insecure": true,
-				"username": "username",
-				"password": "p455w0rd",
-				"org": "example-org1",
-				"vdc": "example-org1-dc1"
-			},
-			{
-				"project": "example2",
-				"url": "https://vcd.example.com/api",
-				"username": "username",
-				"password": "p455w0rd",
-				"org": "example-org2",
-				"vdc": "example-org2-dc1"
-			},
-			{
-				"project": "example3",
-				"url": "https://vcd.example.com/api",
-				"username": "username",
-				"password": "p455w0rd",
-				"org": "example-org3",
-				"vdc": "example-org3-dc1"
-			}
-		]
-	}
+    "server": {
+        "addr": "0.0.0.0:9000",
+        "path": "/metrics",
+        "web_config": ""
+    },
+    "logs": {
+        "level": "error",
+        "pretty": false
+    },
+    "target": {
+        "engine": "file",
+        "file": "/etc/prometheus/vcd.json",
+        "refresh": 30,
+        "credentials": [{
+                "project": "example1",
+                "url": "https://vcd.example.com/api",
+                "insecure": true,
+                "username": "username",
+                "password": "p455w0rd",
+                "org": "example-org1",
+                "vdc": "example-org1-dc1"
+            },
+            {
+                "project": "example2",
+                "url": "https://vcd.example.com/api",
+                "username": "username",
+                "password": "p455w0rd",
+                "org": "example-org2",
+                "vdc": "example-org2-dc1"
+            },
+            {
+                "project": "example3",
+                "url": "https://vcd.example.com/api",
+                "username": "username",
+                "password": "p455w0rd",
+                "org": "example-org3",
+                "vdc": "example-org3-dc1"
+            }
+        ]
+    }
 }
