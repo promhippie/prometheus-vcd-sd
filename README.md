@@ -1,6 +1,6 @@
 # Prometheus vCloud Director SD
 
-[![Build Status](http://cloud.drone.io/api/badges/promhippie/prometheus-vcd-sd/status.svg)](http://cloud.drone.io/promhippie/prometheus-vcd-sd)
+[![Build Status](http://drone.webhippie.de/api/badges/promhippie/prometheus-vcd-sd/status.svg)](http://drone.webhippie.de/promhippie/prometheus-vcd-sd)
 [![Join the Matrix chat at https://matrix.to/#/#webhippie:matrix.org](https://img.shields.io/badge/matrix-%23webhippie-7bc9a4.svg)](https://matrix.to/#/#webhippie:matrix.org)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/8a5f11b7eb86484eb11ff56253ac20a2)](https://www.codacy.com/gh/promhippie/prometheus-vcd-sd?utm_source=github.com&utm_medium=referral&utm_content=promhippie/prometheus-vcd-sd&utm_campaign=Badge_Grade)
 [![Go Doc](https://godoc.org/github.com/promhippie/prometheus-vcd-sd?status.svg)](http://godoc.org/github.com/promhippie/prometheus-vcd-sd)
