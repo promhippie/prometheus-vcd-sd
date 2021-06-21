@@ -412,10 +412,10 @@
 </span><span class="w">  </span>file_sd_configs<span class="p">:</span><span class="w">
 </span><span class="w">  </span>-<span class="w"> </span>files<span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;/etc/sd/vcd.json&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
 </span><span class="w">  </span>relabel_configs<span class="p">:</span><span class="w">
-</span><span class="w">  </span>-<span class="w"> </span>source_labels<span class="p">:</span><span class="w"> </span><span class="p">[</span>__meta_VCD_network_internal<span class="p">]</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>source_labels<span class="p">:</span><span class="w"> </span><span class="p">[</span>__meta_vcd_network_internal<span class="p">]</span><span class="w">
 </span><span class="w">    </span>replacement<span class="p">:</span><span class="w"> </span><span class="s2">&#34;${1}:9100&#34;</span><span class="w">
 </span><span class="w">    </span>target_label<span class="p">:</span><span class="w"> </span>__address__<span class="w">
-</span><span class="w">  </span>-<span class="w"> </span>source_labels<span class="p">:</span><span class="w"> </span><span class="p">[</span>__meta_VCD_name<span class="p">]</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>source_labels<span class="p">:</span><span class="w"> </span><span class="p">[</span>__meta_vcd_name<span class="p">]</span><span class="w">
 </span><span class="w">    </span>target_label<span class="p">:</span><span class="w"> </span>instance<span class="w">
 </span><span class="w"></span>-<span class="w"> </span>job_name<span class="p">:</span><span class="w"> </span>vcd-sd<span class="w">
 </span><span class="w">  </span>static_configs<span class="p">:</span><span class="w">
@@ -490,38 +490,63 @@
       - ./service-discovery:/etc/sd
 </code></pre></div>
 
-<p>Finally the service discovery should be configured fine, let&rsquo;s start this stack with <a href="https://docs.docker.com/compose/">docker-compose</a>, you just need to execute <code>docker-compose up</code> within the directory where you have stored <code>prometheus.yml</code> and <code>docker-compose.yml</code>.</p>
+<p>If you want to secure the access to the exporter or also the HTTP service discovery endpoint you can provide a web config. You just need to provide a path to the config file in order to enable the support for it, for details about the config format look at the <a href="#web-configuration">documentation</a> section:</p>
 
-<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">Creating network &#34;vcd-sd_default&#34; with the default driver
-Creating volume &#34;vcd-sd_prometheus&#34; with default driver
-Creating vcd-sd_vcd-exporter_1 ... done
-Creating vcd-sd_prometheus_1   ... done
-Attaching to vcd-sd_vcd-exporter_1, vcd-sd_prometheus_1
-prometheus_1    | level=info ts=2020-06-20T21:41:32.6738077Z caller=main.go:243 msg=&#34;Starting Prometheus&#34; version=&#34;(version=2.6.0, branch=HEAD, revision=dbd1d58c894775c0788470944b818cc724f550fb)&#34;
-prometheus_1    | level=info ts=2020-06-20T21:41:32.6739242Z caller=main.go:244 build_context=&#34;(go=go1.11.3, user=root@bf5760470f13, date=20181217-15:14:46)&#34;
-prometheus_1    | level=info ts=2020-06-20T21:41:32.6739553Z caller=main.go:245 host_details=&#34;(Linux 4.19.76-linuxkit #1 SMP Tue May 26 11:42:35 UTC 2020 x86_64 c40f124a0e86 (none))&#34;
-prometheus_1    | level=info ts=2020-06-20T21:41:32.6743456Z caller=main.go:246 fd_limits=&#34;(soft=1048576, hard=1048576)&#34;
-prometheus_1    | level=info ts=2020-06-20T21:41:32.6744037Z caller=main.go:247 vm_limits=&#34;(soft=unlimited, hard=unlimited)&#34;
-prometheus_1    | level=info ts=2020-06-20T21:41:32.6754939Z caller=main.go:561 msg=&#34;Starting TSDB ...&#34;
-prometheus_1    | level=info ts=2020-06-20T21:41:32.6759495Z caller=web.go:429 component=web msg=&#34;Start listening for connections&#34; address=0.0.0.0:9090
-prometheus_1    | level=info ts=2020-06-20T21:41:32.6832124Z caller=main.go:571 msg=&#34;TSDB started&#34;
-prometheus_1    | level=info ts=2020-06-20T21:41:32.6832976Z caller=main.go:631 msg=&#34;Loading configuration file&#34; filename=prometheus.yml
-prometheus_1    | level=info ts=2020-06-20T21:41:32.6862854Z caller=main.go:657 msg=&#34;Completed loading of configuration file&#34; filename=prometheus.yml
-prometheus_1    | level=info ts=2020-06-20T21:41:32.6863411Z caller=main.go:530 msg=&#34;Server is ready to receive web requests.&#34;
-vcd-exporter_1  | level=info ts=2020-06-20T21:41:33.1219629Z msg=&#34;Launching Prometheus vCloud Director SD&#34; version=1e2c111 revision=1e2c111 date=20200620 go=go1.14.2
-vcd-exporter_1  | level=info ts=2020-06-20T21:41:33.4333853Z msg=&#34;Starting metrics server&#34; addr=0.0.0.0:9000</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-diff" data-lang="diff">  vcd-exporter:
+    image: promhippie/prometheus-vcd-sd:latest
+    restart: always
+    environment:
+<span class="gi">+     - PROMETHEUS_VCD_WEB_CONFIG=path/to/web-config.json
+</span><span class="gi"></span>      - PROMETHEUS_VCD_LOG_PRETTY=true
+      - PROMETHEUS_VCD_OUTPUT_FILE=/etc/sd/vcd.json
+      - PROMETHEUS_VCD_URL=https://vdc.example.com/api
+      - PROMETHEUS_VCD_USERNAME=username
+      - PROMETHEUS_VCD_PASSWORD=p455w0rd
+      - PROMETHEUS_VCD_ORG=MY-ORG1
+      - PROMETHEUS_VCD_VDC=MY-ORG1-DC1
+    volumes:
+      - ./service-discovery:/etc/sd
+</code></pre></div>
 
-<p>That&rsquo;s all, the service discovery should be up and running. You can access <a href="https://prometheus.io">Prometheus</a> at <a href="http://localhost:9090">http://localhost:9090</a>.</p>
+<p>To avoid the dependency on a shared filesystem between this service discovery and the <a href="https://prometheus.io">Prometheus</a> configuration directory, you are able to use the new <a href="https://prometheus.io/docs/prometheus/2.28/configuration/configuration/#http_sd_config">HTTP service discovery</a> starting with <a href="https://prometheus.io">Prometheus</a> &gt;= v2.28, you just need to switch the engine for this service discovery:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-diff" data-lang="diff">  vcd-exporter:
+    image: promhippie/prometheus-vcd-sd:latest
+    restart: always
+    environment:
+      - PROMETHEUS_VCD_LOG_PRETTY=true
+<span class="gi">+     - PROMETHEUS_VCD_OUTPUT_ENGINE=http
+</span><span class="gi"></span>      - PROMETHEUS_VCD_OUTPUT_FILE=/etc/sd/vcd.json
+      - PROMETHEUS_VCD_URL=https://vdc.example.com/api
+      - PROMETHEUS_VCD_USERNAME=username
+      - PROMETHEUS_VCD_PASSWORD=p455w0rd
+      - PROMETHEUS_VCD_ORG=MY-ORG1
+      - PROMETHEUS_VCD_VDC=MY-ORG1-DC1
+    volumes:
+      - ./service-discovery:/etc/sd
+</code></pre></div>
+
+<p>To use the HTTP service discovery you just need to change the <a href="https://prometheus.io">Prometheus</a> configuration mentioned above a little bit:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">scrape_configs<span class="p">:</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>job_name<span class="p">:</span><span class="w"> </span>node<span class="w">
+</span><span class="w">  </span>http_sd_config<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>url<span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//vcd-sd<span class="p">:</span><span class="m">9000</span>/sd<span class="w">
+</span><span class="w">  </span>relabel_configs<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>source_labels<span class="p">:</span><span class="w"> </span><span class="p">[</span>__meta_vcd_network_internal<span class="p">]</span><span class="w">
+</span><span class="w">    </span>replacement<span class="p">:</span><span class="w"> </span><span class="s2">&#34;${1}:9100&#34;</span><span class="w">
+</span><span class="w">    </span>target_label<span class="p">:</span><span class="w"> </span>__address__<span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>source_labels<span class="p">:</span><span class="w"> </span><span class="p">[</span>__meta_vcd_name<span class="p">]</span><span class="w">
+</span><span class="w">    </span>target_label<span class="p">:</span><span class="w"> </span>instance<span class="w">
+</span><span class="w">    </span>target_label<span class="p">:</span><span class="w"> </span>instance</code></pre></div>
+
+<p>Finally the service discovery should be configured fine, let&rsquo;s start this stack with <a href="https://docs.docker.com/compose/">docker-compose</a>, you just need to execute <code>docker-compose up</code> within the directory where you have stored <code>prometheus.yml</code> and <code>docker-compose.yml</code>. That&rsquo;s all, the service discovery should be up and running. You can access <a href="https://prometheus.io">Prometheus</a> at <a href="http://localhost:9090">http://localhost:9090</a>.</p>
 
 <figure>
     <img src="service-discovery.png"/> <figcaption>
             <h4>Prometheus service discovery for vCloud Director</h4>
         </figcaption>
 </figure>
-
-<h2 id="kubernetes">Kubernetes</h2>
-
-<p>Currently we have not prepared a deployment for Kubernetes, but this is something we will provide for sure. Most interesting will be the integration into the <a href="https://coreos.com/operators/prometheus/docs/latest/">Prometheus Operator</a>, so stay tuned.</p>
 
 <h2 id="configuration">Configuration</h2>
 
@@ -530,32 +555,11 @@ vcd-exporter_1  | level=info ts=2020-06-20T21:41:33.4333853Z msg=&#34;Starting m
 <p>If you prefer to configure the service with environment variables you can see the available variables below, in case you want to configure multiple accounts with a single service you are forced to use the configuration file as the environment variables are limited to a single account. As the service is pretty lightweight you can even start an instance per account and configure it entirely by the variables, it&rsquo;s up to you.</p>
 
 <dl>
-<dt>PROMETHEUS_VCD_CONFIG<br /></dt>
-<dd>Path to vCloud Director configuration file, optionally, required for multi credentials<br />
-<br /></dd>
-<dt>PROMETHEUS_VCD_URL<br /></dt>
-<dd>URL for the vCloud Director API, required for authentication<br />
-<br /></dd>
-<dt>PROMETHEUS_VCD_INSECURE<br /></dt>
-<dd>Insecure access for the vCloud Director API, required for authentication<br />
-<br /></dd>
-<dt>PROMETHEUS_VCD_USERNAME<br /></dt>
-<dd>Username for the vCloud Director API, required for authentication<br />
-<br /></dd>
-<dt>PROMETHEUS_VCD_PASSWORD<br /></dt>
-<dd>Password for the vCloud Director API, required for authentication<br />
-<br /></dd>
-<dt>PROMETHEUS_VCD_ORG<br /></dt>
-<dd>Organization for the vCloud Director API, required for authentication<br />
-<br /></dd>
-<dt>PROMETHEUS_VCD_VDC<br /></dt>
-<dd>vDatacenter for the vCloud Director API, required for authentication<br />
-<br /></dd>
 <dt>PROMETHEUS_VCD_LOG_LEVEL<br /></dt>
 <dd>Only log messages with given severity, defaults to <code>info</code><br />
 <br /></dd>
 <dt>PROMETHEUS_VCD_LOG_PRETTY<br /></dt>
-<dd>Enable pretty messages for logging, defaults to <code>true</code><br />
+<dd>Enable pretty messages for logging, defaults to <code>false</code><br />
 <br /></dd>
 <dt>PROMETHEUS_VCD_WEB_ADDRESS<br /></dt>
 <dd>Address to bind the metrics server, defaults to <code>0.0.0.0:9000</code><br />
@@ -563,13 +567,43 @@ vcd-exporter_1  | level=info ts=2020-06-20T21:41:33.4333853Z msg=&#34;Starting m
 <dt>PROMETHEUS_VCD_WEB_PATH<br /></dt>
 <dd>Path to bind the metrics server, defaults to <code>/metrics</code><br />
 <br /></dd>
+<dt>PROMETHEUS_VCD_WEB_CONFIG<br /></dt>
+<dd>Path to web-config file<br />
+<br /></dd>
+<dt>PROMETHEUS_VCD_OUTPUT_ENGINE<br /></dt>
+<dd>Enabled engine like file or http, defaults to <code>file</code><br />
+<br /></dd>
 <dt>PROMETHEUS_VCD_OUTPUT_FILE<br /></dt>
 <dd>Path to write the file_sd config, defaults to <code>/etc/prometheus/vcd.json</code><br />
 <br /></dd>
 <dt>PROMETHEUS_VCD_OUTPUT_REFRESH<br /></dt>
 <dd>Discovery refresh interval in seconds, defaults to <code>30</code><br />
 <br /></dd>
+<dt>PROMETHEUS_VCD_URL<br /></dt>
+<dd>URL for the vCloud Director API<br />
+<br /></dd>
+<dt>PROMETHEUS_VCD_INSECURE<br /></dt>
+<dd>Accept self-signed certs for the vCloud Director API, defaults to <code>false</code><br />
+<br /></dd>
+<dt>PROMETHEUS_VCD_USERNAME<br /></dt>
+<dd>Username for the vCloud Director API<br />
+<br /></dd>
+<dt>PROMETHEUS_VCD_PASSWORD<br /></dt>
+<dd>Password for the vCloud Director API<br />
+<br /></dd>
+<dt>PROMETHEUS_VCD_ORG<br /></dt>
+<dd>Organization for the vCloud Director API<br />
+<br /></dd>
+<dt>PROMETHEUS_VCD_VDC<br /></dt>
+<dd>vDatacenter for the vCloud Director API<br />
+<br /></dd>
+<dt>PROMETHEUS_VCD_CONFIG<br /></dt>
+<dd>Path to vCloud Director configuration file<br /></dd>
 </dl>
+
+<h3 id="web-configuration">Web Configuration</h3>
+
+<p>If you want to secure the service by TLS or by some basic authentication you can provide a <code>YAML</code> configuration file whch follows the <a href="https://prometheus.io">Prometheus</a> toolkit format. You can see a full configration example within the <a href="https://github.com/prometheus/exporter-toolkit/blob/master/docs/web-configuration.md">toolkit documentation</a>.</p>
 
 <h3 id="configuration-file">Configuration file</h3>
 
@@ -579,6 +613,7 @@ vcd-exporter_1  | level=info ts=2020-06-20T21:41:33.4333853Z msg=&#34;Starting m
 
 <ul>
 <li><code>__address__</code><br /></li>
+<li><code>__meta_vcd_id</code><br /></li>
 <li><code>__meta_vcd_metadata_&lt;name&gt;</code><br /></li>
 <li><code>__meta_vcd_name</code><br /></li>
 <li><code>__meta_vcd_network_&lt;name&gt;</code><br /></li>
@@ -589,17 +624,16 @@ vcd-exporter_1  | level=info ts=2020-06-20T21:41:33.4333853Z msg=&#34;Starting m
 <li><code>__meta_vcd_project</code><br /></li>
 <li><code>__meta_vcd_status</code><br /></li>
 <li><code>__meta_vcd_storage_profile</code><br /></li>
-<li><code>__meta_vcd_vdc</code><br />
-<br /></li>
+<li><code>__meta_vcd_vdc</code><br /></li>
 </ul>
 
 <h2 id="metrics">Metrics</h2>
 
 <dl>
-<dt>prometheus_vcd_sd_request_duration_seconds<br /></dt>
+<dt>prometheus_vcd_sd_request_duration_seconds{project, type}<br /></dt>
 <dd>Histogram of latencies for requests to the vCloud Director API<br />
 <br /></dd>
-<dt>prometheus_vcd_sd_request_failures_total<br /></dt>
+<dt>prometheus_vcd_sd_request_failures_total{project, type}<br /></dt>
 <dd>Total number of failed requests to the vCloud Director API<br /></dd>
 </dl>
 
