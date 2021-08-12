@@ -727,8 +727,8 @@ github.com/urfave/cli v1.22.1/go.mod h1:Gos4lmkARVdJ6EkW0WaNv/tZAAMe9V7XWyB60NtX
 github.com/urfave/cli/v2 v2.3.0 h1:qph92Y649prgesehzOrQjdWyxFOp/QVM+6imKHad91M=
 github.com/urfave/cli/v2 v2.3.0/go.mod h1:LJmUH05zAU44vOAcrfzZQKsZbVcdbOG8rtL3/XcUArI=
 github.com/vektah/gqlparser v1.1.2/go.mod h1:1ycwN7Ij5njmMkPPAOaRFY4rET2Enx7IkVv3vaXspKw=
-github.com/vmware/go-vcloud-director/v2 v2.12.0 h1:macKuZuPNrj7MRNcrzFTnV4nbEUIKSMWatqnEvUfeoc=
-github.com/vmware/go-vcloud-director/v2 v2.12.0/go.mod h1:poaOwg7CoXO4m9Pv4TVhMpNF1wQQwKzxpdGYTfjzajs=
+github.com/vmware/go-vcloud-director/v2 v2.12.1 h1:PO+dVQyZlECX87oVWgLb4/S2v5hiqKREVGsAwTCJHbQ=
+github.com/vmware/go-vcloud-director/v2 v2.12.1/go.mod h1:poaOwg7CoXO4m9Pv4TVhMpNF1wQQwKzxpdGYTfjzajs=
 github.com/willf/bitset v1.1.3/go.mod h1:RjeCKbqT1RxIR/KWY6phxZiaY1IyutSBfGjNPySAYV4=
 github.com/xdg/scram v0.0.0-20180814205039-7eeb5667e42c/go.mod h1:lB8K/P019DLNhemzwFU4jHLhdvlE6uDZjXFejJXr49I=
 github.com/xdg/stringprep v0.0.0-20180714160509-73f8eece6fdc/go.mod h1:Jhud4/sHMO4oL310DaZAKk9ZaJ08SJfe+sJh0HrGL1Y=
