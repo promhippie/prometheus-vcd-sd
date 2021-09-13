@@ -148,7 +148,7 @@ To use the HTTP service discovery you just need to change the [Prometheus](https
 {{< highlight yaml >}}
 scrape_configs:
 - job_name: node
-  http_sd_config:
+  http_sd_configs:
   - url: http://vcd-sd:9000/sd
   relabel_configs:
   - source_labels: [__meta_vcd_network_internal]
