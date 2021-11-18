@@ -5,7 +5,7 @@ go 1.15
 require (
 	github.com/araddon/dateparse v0.0.0-20210207001429-0eec95c9db7e // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.0 // indirect
-	github.com/go-chi/chi/v5 v5.0.6
+	github.com/go-chi/chi/v5 v5.0.7
 	github.com/go-kit/kit v0.12.0
 	github.com/hashicorp/go-version v1.2.1 // indirect
 	github.com/joho/godotenv v1.4.0
