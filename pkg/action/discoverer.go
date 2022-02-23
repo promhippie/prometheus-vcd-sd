@@ -235,26 +235,12 @@ func (d *Discoverer) getTargets(ctx context.Context) ([]*targetgroup.Group, erro
 				}
 
 				for _, network := range vm.VM.NetworkConnectionSection.NetworkConnection {
-					normalied := strings.ToLower(
-						strings.ReplaceAll(
-							network.Network,
-							"-",
-							"_",
-						),
-					)
-
-					target.Labels[model.LabelName(Labels["networkPrefix"]+normalied)] = model.LabelValue(network.IPAddress)
+					normalized := normalizeLabel(network.Network)
+					target.Labels[model.LabelName(Labels["networkPrefix"]+normalized)] = model.LabelValue(network.IPAddress)
 				}
 
 				for _, entry := range metadata.MetadataEntry {
-					normalized := strings.ToLower(
-						strings.ReplaceAll(
-							entry.Key,
-							"-",
-							"_",
-						),
-					)
-
+					normalized := normalizeLabel(entry.Key)
 					target.Labels[model.LabelName(Labels["metadataPrefix"]+normalized)] = model.LabelValue(entry.TypedValue.Value)
 				}
 
@@ -292,4 +278,24 @@ func (d *Discoverer) getTargets(ctx context.Context) ([]*targetgroup.Group, erro
 
 	d.lasts = current
 	return targets, nil
+}
+
+func normalizeLabel(val string) string {
+	replaces := map[string]string{
+		"-": "_",
+		".": "_",
+		",": "_",
+	}
+
+	for original, replaced := range replaces {
+		val = strings.ReplaceAll(
+			val,
+			original,
+			replaced,
+		)
+	}
+
+	return strings.ToLower(
+		val,
+	)
 }
