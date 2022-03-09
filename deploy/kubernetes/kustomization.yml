@@ -1,0 +1,32 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - servicemonitor.yml
+  - service.yml
+  - deployment.yml
+
+configMapGenerator:
+  - name: prometheus-vcd-sd
+    literals:
+      - PROMETHEUS_VCD_OUTPUT_ENGINE=http
+      - PROMETHEUS_VCD_OUTPUT_FILE=/etc/prometheus/vcd.json
+
+secretGenerator:
+  - name: prometheus-vcd-sd
+    literals:
+      - PROMETHEUS_VCD_URL=https://vdc.example.com/api
+      - PROMETHEUS_VCD_USERNAME=username
+      - PROMETHEUS_VCD_PASSWORD=p455w0rd
+      - PROMETHEUS_VCD_ORG=MY-ORG1
+      - PROMETHEUS_VCD_VDC=MY-ORG1-DC1
+  - name: prometheus-vcd-files
+    literals: []
+
+images:
+  - name: prometheus-vcd-sd
+    newName: quay.io/promhippie/prometheus-vcd-sd
+    newTag: latest
+
+...
