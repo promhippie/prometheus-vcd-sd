@@ -1,36 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://promhippie.github.io/prometheus-vcd-sd/getting-started/</loc>
     <lastmod>2018-05-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://promhippie.github.io/prometheus-vcd-sd/kubernetes/</loc>
+    <lastmod>2022-03-09T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://promhippie.github.io/prometheus-vcd-sd/building/</loc>
     <lastmod>2020-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://promhippie.github.io/prometheus-vcd-sd/license/</loc>
     <lastmod>2018-05-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://promhippie.github.io/prometheus-vcd-sd/</loc>
-    <lastmod>2020-04-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://promhippie.github.io/prometheus-vcd-sd/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://promhippie.github.io/prometheus-vcd-sd/</loc>
+  </url><url>
     <loc>https://promhippie.github.io/prometheus-vcd-sd/tags/</loc>
-    <priority>0</priority>
   </url>
-  
 </urlset>
