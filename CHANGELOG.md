@@ -1,3 +1,30 @@
+# Changelog for unreleased
+
+The following sections list the changes for unreleased.
+
+## Summary
+
+ * Fix #86: Properly normalize label names
+ * Chg #90: Refactor build tools and project structure
+
+## Details
+
+ * Bugfix #86: Properly normalize label names
+
+   We have added more character replacements for generating the label names as it could contain
+   bad characters depending on the definitions within a vCloud Director instance. Now we are
+   replacing `-`, `.` and `,` by `_`.
+
+   https://github.com/promhippie/prometheus-vcd-sd/issues/86
+
+ * Change #90: Refactor build tools and project structure
+
+   To have a unified project structure and build tooling we have integrated the same structure we
+   already got within our GitHub exporter.
+
+   https://github.com/promhippie/prometheus-vcd-sd/issues/90
+
+
 # Changelog for 0.2.0
 
 The following sections list the changes for 0.2.0.
