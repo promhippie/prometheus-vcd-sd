@@ -62,8 +62,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           images: |
-            promhippie/hcloud-exporter
-            quay.io/promhippie/hcloud-exporter
+            promhippie/prometheus-vcd-sd
+            quay.io/promhippie/prometheus-vcd-sd
           labels: |
             org.opencontainers.image.vendor=Webhippie
             maintainer=Thomas Boerger <thomas@webhippie.de>
@@ -127,7 +127,7 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          images: promhippie/hcloud-exporter
+          images: promhippie/prometheus-vcd-sd
           tags: |
             type=raw,value=latest,enable=${{ github.ref == 'refs/heads/master' }}
             type=semver,pattern={{version}}
@@ -141,7 +141,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           platforms: linux/amd64,linux/386,linux/arm64,linux/arm/v6
-          template: promhippie/hcloud-exporter:VERSION-OS-ARCH
+          template: promhippie/prometheus-vcd-sd:VERSION-OS-ARCH
           target: ${{ steps.hubTags.outputs.tags }}
           ignore_missing: true
 
@@ -150,7 +150,7 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          images: quay.io/promhippie/hcloud-exporter
+          images: quay.io/promhippie/prometheus-vcd-sd
           tags: |
             type=raw,value=latest,enable=${{ github.ref == 'refs/heads/master' }}
             type=semver,pattern={{version}}
@@ -164,7 +164,7 @@ jobs:
           username: ${{ secrets.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_PASSWORD }}
           platforms: linux/amd64,linux/386,linux/arm64,linux/arm/v6
-          template: quay.io/promhippie/hcloud-exporter:VERSION-OS-ARCH
+          template: quay.io/promhippie/prometheus-vcd-sd:VERSION-OS-ARCH
           target: ${{ steps.quayTags.outputs.tags }}
           ignore_missing: true
 
@@ -181,7 +181,7 @@ jobs:
         uses: actionhippie/pushrm@v1
         with:
           provider: dockerhub
-          target: promhippie/hcloud-exporter
+          target: promhippie/prometheus-vcd-sd
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           description: HetznerCloud Exporter
@@ -192,7 +192,7 @@ jobs:
         uses: actionhippie/pushrm@v1
         with:
           provider: quay
-          target: quay.io/promhippie/hcloud-exporter
+          target: quay.io/promhippie/prometheus-vcd-sd
           apikey: ${{ secrets.QUAY_APIKEY }}
           readme: README.md
 
