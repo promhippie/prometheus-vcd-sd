@@ -1,13 +1,9 @@
-FROM webhippie/alpine:latest@sha256:b947697c005c39a0f883ff91f0ffd2a7c13a02f144fc70e71b1242c5b4c347d9 AS build
+FROM arm32v6/alpine:3.15@sha256:e047bc2af17934d38c5a7fa9f46d443f1de3a7675546402592ef805cfa929f9d AS build
 RUN apk add --no-cache ca-certificates mailcap
 
 FROM scratch
 
-LABEL maintainer="Thomas Boerger <thomas@webhippie.de>" \
-  org.label-schema.name="Prometheus vCD SD" \
-  org.label-schema.vendor="Thomas Boerger" \
-  org.label-schema.schema-version="1.0"
-
+EXPOSE 9000
 ENTRYPOINT ["/usr/bin/prometheus-vcd-sd"]
 CMD ["server"]
 HEALTHCHECK CMD ["/usr/bin/prometheus-vcd-sd", "health"]
