@@ -62,9 +62,9 @@ spec:
             - name: files
               mountPath: /etc/prometheus-vcd-sd
 
-  volumes:
-    - name: files
-      configMap:
-        name: prometheus-vcd-files
+      volumes:
+        - name: files
+          configMap:
+            name: prometheus-vcd-files
 
 ...
