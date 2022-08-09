@@ -3,7 +3,7 @@ package command
 import (
 	"errors"
 
-	"github.com/go-kit/kit/log/level"
+	"github.com/go-kit/log/level"
 	"github.com/promhippie/prometheus-vcd-sd/pkg/action"
 	"github.com/promhippie/prometheus-vcd-sd/pkg/config"
 	"github.com/urfave/cli/v2"

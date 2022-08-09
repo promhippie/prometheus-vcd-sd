@@ -23,7 +23,7 @@ TAGS ?= netgo
 
 ifndef OUTPUT
 	ifeq ($(GITHUB_REF_TYPE), tag)
-		OUTPUT ?= $(subst refs/tags/v,,$(GITHUB_REF))
+		OUTPUT ?= $(subst v,,$(GITHUB_REF_NAME))
 	else
 		OUTPUT ?= testing
 	endif
@@ -31,7 +31,7 @@ endif
 
 ifndef VERSION
 	ifeq ($(GITHUB_REF_TYPE), tag)
-		VERSION ?= $(subst refs/tags/v,,$(GITHUB_REF))
+		VERSION ?= $(subst v,,$(GITHUB_REF_NAME))
 	else
 		VERSION ?= $(shell git rev-parse --short HEAD)
 	endif

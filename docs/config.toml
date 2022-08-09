@@ -1,7 +1,10 @@
 baseURL = "https://promhippie.github.io/prometheus-vcd-sd/"
 languageCode = "en-us"
-title = "Prometheus vCD SD"
+title = "Prometheus VMWare vCloud Director SD"
 pygmentsUseClasses = true
+
+[markup.goldmark.renderer]
+  unsafe = true
 
 [blackfriday]
   angledQuotes = true
