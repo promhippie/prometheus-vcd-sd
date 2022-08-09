@@ -1,3 +1,22 @@
+# Changelog for 0.4.0
+
+The following sections list the changes for 0.4.0.
+
+## Summary
+
+ * Enh #127: Improve doucmentation and repo structure
+
+## Details
+
+ * Enhancement #127: Improve doucmentation and repo structure
+
+   We have improved the available documentation pretty hard and we also added documentation how
+   to install this service discovery via Helm or Kustomize on Kubernetes. Beside that we are
+   testing to build the bundled Kustomize manifests now.
+
+   https://github.com/promhippie/prometheus-vcd-sd/pull/127
+
+
 # Changelog for 0.3.0
 
 The following sections list the changes for 0.3.0.
