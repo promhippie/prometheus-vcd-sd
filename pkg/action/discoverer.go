@@ -285,6 +285,7 @@ func normalizeLabel(val string) string {
 		"-": "_",
 		".": "_",
 		",": "_",
+		" ": "_",
 	}
 
 	for original, replaced := range replaces {
