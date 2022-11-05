@@ -1,4 +1,6 @@
-Bugfix : Network names can include a space
+Bugfix: Network names can include a space
 
-Fixed issue #142, where a network name included a space. 
-This caused the network label to include that space and prevented Prometheus from reading the output file
+Nnetwork names can include a space, with this fix they are properly sanitized
+and you are able to use these labels.
+
+https://github.com/promhippie/prometheus-vcd-sd/issues/142
