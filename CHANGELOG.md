@@ -1,3 +1,21 @@
+# Changelog for unreleased
+
+The following sections list the changes for unreleased.
+
+## Summary
+
+ * Fix #142: Network names can include a space
+
+## Details
+
+ * Bugfix #142: Network names can include a space
+
+   Nnetwork names can include a space, with this fix they are properly sanitized and you are able to
+   use these labels.
+
+   https://github.com/promhippie/prometheus-vcd-sd/issues/142
+
+
 # Changelog for 0.4.0
 
 The following sections list the changes for 0.4.0.
