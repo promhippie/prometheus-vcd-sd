@@ -16,7 +16,7 @@ If you need further guidance how to install this take a look at our
 
 Make sure you have a working Go environment, for further reference or a guide
 take a look at the [install instructions][golang]. This project requires
-Go >= v1.17, at least that's the version we are using.
+Go >= v1.19, at least that's the version we are using.
 
 ```console
 git clone https://github.com/promhippie/prometheus-vcd-sd.git
