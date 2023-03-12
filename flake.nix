@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+      url = "github:nixos/nixpkgs/nixpkgs-unstable";
     };
 
     utils = {
@@ -11,7 +11,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, utils }:
+  outputs = { self, nixpkgs, utils, ... }@inputs:
     utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
@@ -19,9 +19,8 @@
       {
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
-            gcc
-            glibc.static
-            go
+            gnumake
+            go_1_19
           ];
         };
       }

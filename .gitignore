@@ -1,10 +1,8 @@
+.direnv
 coverage.out
-ab0x.go
 
 /bin
 /dist
 
 vcd.json
 config.json
-
-.direnv
