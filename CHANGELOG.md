@@ -68,12 +68,19 @@ The following sections list the changes for 0.2.0.
 
 ## Summary
 
+ * Chg #30: Add new label for virtual machine ID
  * Chg #33: Improvements for automated documentation
  * Chg #34: Integrate new HTTP service discovery handler
- * Chg #30: Add new label for virtual machine ID
  * Chg #35: Integrate standard web config
 
 ## Details
+
+ * Change #30: Add new label for virtual machine ID
+
+   We've added a new label to get the current ID of a virtual machine in the format provided by vCloud
+   Director in the form of `urn:vcloud:vm:807b799e-c72f-4592-9acd-ccefefe92720`.
+
+   https://github.com/promhippie/prometheus-vcd-sd/issues/30
 
  * Change #33: Improvements for automated documentation
 
@@ -91,13 +98,6 @@ The following sections list the changes for 0.2.0.
 
    https://github.com/promhippie/prometheus-vcd-sd/issues/34
 
- * Change #30: Add new label for virtual machine ID
-
-   We've added a new label to get the current ID of a virtual machine in the format provided by vCloud
-   Director in the form of `urn:vcloud:vm:807b799e-c72f-4592-9acd-ccefefe92720`.
-
-   https://github.com/promhippie/prometheus-vcd-sd/issues/30
-
  * Change #35: Integrate standard web config
 
    We integrated the new web config from the Prometheus toolkit which provides a configuration
@@ -113,13 +113,20 @@ The following sections list the changes for 0.1.2.
 
 ## Summary
 
- * Fix #10: Fix nil pointer if vApp doesn't provide a VM
  * Fix #5: Normalize labels for networks
+ * Fix #10: Fix nil pointer if vApp doesn't provide a VM
  * Chg #6: Use bingo for development tooling
  * Chg #7: Update Go version and dependencies
  * Chg #8: Drop dariwn/386 release builds
 
 ## Details
+
+ * Bugfix #5: Normalize labels for networks
+
+   We have applied a fix to properly normalize names of networks attached to VMs, before this patch
+   the labels could include dashes, which is an invalid label for prometheus.
+
+   https://github.com/promhippie/prometheus-vcd-sd/issues/5
 
  * Bugfix #10: Fix nil pointer if vApp doesn't provide a VM
 
@@ -128,13 +135,6 @@ The following sections list the changes for 0.1.2.
    vApp.
 
    https://github.com/promhippie/prometheus-vcd-sd/issues/10
-
- * Bugfix #5: Normalize labels for networks
-
-   We have applied a fix to properly normalize names of networks attached to VMs, before this patch
-   the labels could include dashes, which is an invalid label for prometheus.
-
-   https://github.com/promhippie/prometheus-vcd-sd/issues/5
 
  * Change #6: Use bingo for development tooling
 
