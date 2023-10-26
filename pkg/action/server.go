@@ -2,6 +2,7 @@ package action
 
 import (
 	"context"
+	"fmt"
 	"io"
 	"net/http"
 	"net/url"
@@ -40,6 +41,30 @@ func Server(cfg *config.Config, logger log.Logger) error {
 		configs := make(map[string]*client.Client, len(cfg.Target.Credentials))
 
 		for _, credential := range cfg.Target.Credentials {
+			username, err := config.Value(credential.Username)
+
+			if err != nil {
+				level.Error(logger).Log(
+					"msg", "Failed to read username secret",
+					"project", credential.Project,
+					"err", err,
+				)
+
+				return fmt.Errorf("failed to read username secret for %s", credential.Project)
+			}
+
+			password, err := config.Value(credential.Password)
+
+			if err != nil {
+				level.Error(logger).Log(
+					"msg", "Failed to read password secret",
+					"project", credential.Project,
+					"err", err,
+				)
+
+				return fmt.Errorf("failed to read password secret for %s", credential.Project)
+			}
+
 			parsed, err := url.ParseRequestURI(credential.URL)
 
 			if err != nil {
@@ -54,8 +79,8 @@ func Server(cfg *config.Config, logger log.Logger) error {
 			configs[credential.Project] = client.New(
 				parsed,
 				credential.Insecure,
-				credential.Username,
-				credential.Password,
+				username,
+				password,
 				credential.Org,
 				credential.Vdc,
 			)
