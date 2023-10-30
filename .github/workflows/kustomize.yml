@@ -2,10 +2,11 @@
 name: kustomize
 
 "on":
-  push:
+  workflow_dispatch:
+  pull_request:
     branches:
       - master
-  pull_request:
+  push:
     branches:
       - master
 
@@ -16,9 +17,7 @@ jobs:
     steps:
       - name: Checkout source
         id: source
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
-        with:
-          token: ${{ secrets.BOT_ACCESS_TOKEN }}
+        uses: actions/checkout@v4
 
       - name: Generate manifest
         id: kustomize
