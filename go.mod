@@ -15,7 +15,7 @@ require (
 	github.com/prometheus/prometheus v1.8.2-0.20210220213500-8c8de46003d1
 	github.com/stretchr/testify v1.9.0
 	github.com/urfave/cli/v2 v2.27.1
-	github.com/vmware/go-vcloud-director/v2 v2.22.0
+	github.com/vmware/go-vcloud-director/v2 v2.23.0
 	gopkg.in/yaml.v3 v3.0.1
 )
 
@@ -50,4 +50,5 @@ require (
 	google.golang.org/appengine v1.6.8 // indirect
 	google.golang.org/protobuf v1.33.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
+	sigs.k8s.io/yaml v1.4.0 // indirect
 )
