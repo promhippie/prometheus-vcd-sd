@@ -1,6 +1,6 @@
 module github.com/promhippie/prometheus-vcd-sd
 
-go 1.21
+go 1.22
 
 toolchain go1.22.4
 
@@ -15,7 +15,7 @@ require (
 	github.com/prometheus/prometheus v1.8.2-0.20210220213500-8c8de46003d1
 	github.com/stretchr/testify v1.9.0
 	github.com/urfave/cli/v2 v2.27.2
-	github.com/vmware/go-vcloud-director/v2 v2.24.0
+	github.com/vmware/go-vcloud-director/v2 v2.25.0
 	gopkg.in/yaml.v3 v3.0.1
 )
 
@@ -42,6 +42,7 @@ require (
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/xrash/smetrics v0.0.0-20240312152122-5f08fbb34913 // indirect
 	golang.org/x/crypto v0.24.0 // indirect
+	golang.org/x/exp v0.0.0-20240119083558-1b970713d09a // indirect
 	golang.org/x/net v0.26.0 // indirect
 	golang.org/x/oauth2 v0.21.0 // indirect
 	golang.org/x/sync v0.7.0 // indirect
