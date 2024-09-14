@@ -2,14 +2,12 @@ package action
 
 import (
 	"context"
-	"errors"
 	"fmt"
+	"log/slog"
 	"strconv"
 	"strings"
 	"time"
 
-	"github.com/go-kit/log"
-	"github.com/go-kit/log/level"
 	"github.com/prometheus/common/model"
 	"github.com/prometheus/prometheus/discovery/targetgroup"
 	"github.com/promhippie/prometheus-vcd-sd/pkg/client"
@@ -34,15 +32,12 @@ var (
 		"storageProfile":    providerPrefix + "storage_profile",
 		"vdc":               providerPrefix + "vdc",
 	}
-
-	// ErrClientEndpoint defines an error if the client auth fails.
-	ErrClientEndpoint = errors.New("failed to parse api url")
 )
 
 // Discoverer implements the Prometheus discoverer interface.
 type Discoverer struct {
 	configs   map[string]*client.Client
-	logger    log.Logger
+	logger    *slog.Logger
 	refresh   int
 	separator string
 	lasts     map[string]struct{}
@@ -74,8 +69,7 @@ func (d *Discoverer) getTargets(_ context.Context) ([]*targetgroup.Group, error)
 
 	for project, config := range d.configs {
 		if err := config.Authenticate(); err != nil {
-			level.Warn(d.logger).Log(
-				"msg", "Failed to authenticate",
+			d.logger.Error("Failed to authenticate",
 				"project", project,
 				"err", err,
 			)
@@ -91,8 +85,7 @@ func (d *Discoverer) getTargets(_ context.Context) ([]*targetgroup.Group, error)
 		requestDuration.WithLabelValues(project, "org").Observe(time.Since(nowOrg).Seconds())
 
 		if err != nil {
-			level.Warn(d.logger).Log(
-				"msg", "Failed to fetch org",
+			d.logger.Error("Failed to fetch org",
 				"project", project,
 				"err", err,
 			)
@@ -106,8 +99,7 @@ func (d *Discoverer) getTargets(_ context.Context) ([]*targetgroup.Group, error)
 		requestDuration.WithLabelValues(project, "vdc").Observe(time.Since(nowVdc).Seconds())
 
 		if err != nil {
-			level.Warn(d.logger).Log(
-				"msg", "Failed to fetch vdc",
+			d.logger.Error("Failed to fetch vdc",
 				"project", project,
 				"err", err,
 			)
@@ -132,8 +124,7 @@ func (d *Discoverer) getTargets(_ context.Context) ([]*targetgroup.Group, error)
 			requestDuration.WithLabelValues(project, "vapp").Observe(time.Since(nowVapp).Seconds())
 
 			if err != nil {
-				level.Warn(d.logger).Log(
-					"msg", "Failed to fetch servers",
+				d.logger.Error("Failed to fetch servers",
 					"project", project,
 					"vapp", vappName,
 					"err", err,
@@ -144,8 +135,7 @@ func (d *Discoverer) getTargets(_ context.Context) ([]*targetgroup.Group, error)
 			}
 
 			if vapp.VApp.Children == nil {
-				level.Debug(d.logger).Log(
-					"msg", "No servers defined",
+				d.logger.Debug("No servers defined",
 					"project", project,
 					"vapp", vappName,
 				)
@@ -155,8 +145,7 @@ func (d *Discoverer) getTargets(_ context.Context) ([]*targetgroup.Group, error)
 
 			servers := vapp.VApp.Children.VM
 
-			level.Debug(d.logger).Log(
-				"msg", "Requested servers",
+			d.logger.Debug("Requested servers",
 				"project", project,
 				"vapp", vappName,
 				"count", len(servers),
@@ -172,8 +161,7 @@ func (d *Discoverer) getTargets(_ context.Context) ([]*targetgroup.Group, error)
 				requestDuration.WithLabelValues(project, "vm").Observe(time.Since(nowMachine).Seconds())
 
 				if err != nil {
-					level.Warn(d.logger).Log(
-						"msg", "Failed to fetch vm",
+					d.logger.Error("Failed to fetch vm",
 						"project", project,
 						"vapp", vappName,
 						"server", server.Name,
@@ -190,8 +178,7 @@ func (d *Discoverer) getTargets(_ context.Context) ([]*targetgroup.Group, error)
 				requestDuration.WithLabelValues(project, "metadata").Observe(time.Since(nowMeta).Seconds())
 
 				if err != nil {
-					level.Warn(d.logger).Log(
-						"msg", "Failed to fetch metadata",
+					d.logger.Error("Failed to fetch metadata",
 						"project", project,
 						"vapp", vappName,
 						"server", server.Name,
@@ -244,8 +231,7 @@ func (d *Discoverer) getTargets(_ context.Context) ([]*targetgroup.Group, error)
 					target.Labels[model.LabelName(Labels["metadataPrefix"]+normalized)] = model.LabelValue(entry.TypedValue.Value)
 				}
 
-				level.Debug(d.logger).Log(
-					"msg", "Server added",
+				d.logger.Debug("Server added",
 					"project", project,
 					"vapp", vappName,
 					"server", vm.VM.Name,
@@ -262,8 +248,7 @@ func (d *Discoverer) getTargets(_ context.Context) ([]*targetgroup.Group, error)
 
 	for k := range d.lasts {
 		if _, ok := current[k]; !ok {
-			level.Debug(d.logger).Log(
-				"msg", "Server deleted",
+			d.logger.Debug("Server deleted",
 				"source", k,
 			)
 

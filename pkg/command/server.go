@@ -3,7 +3,6 @@ package command
 import (
 	"errors"
 
-	"github.com/go-kit/log/level"
 	"github.com/promhippie/prometheus-vcd-sd/pkg/action"
 	"github.com/promhippie/prometheus-vcd-sd/pkg/config"
 	"github.com/urfave/cli/v2"
@@ -20,8 +19,7 @@ func Server(cfg *config.Config) *cli.Command {
 
 			if c.IsSet("vcd.config") {
 				if err := readConfig(c.String("vcd.config"), cfg); err != nil {
-					level.Error(logger).Log(
-						"msg", "Failed to read config",
+					logger.Error("Failed to read config",
 						"err", err,
 					)
 
@@ -30,10 +28,7 @@ func Server(cfg *config.Config) *cli.Command {
 			}
 
 			if cfg.Target.File == "" {
-				level.Error(logger).Log(
-					"msg", "Missing path for output.file",
-				)
-
+				logger.Error("Missing path for output.file")
 				return errors.New("missing path for output.file")
 			}
 
@@ -54,51 +49,33 @@ func Server(cfg *config.Config) *cli.Command {
 				)
 
 				if credentials.URL == "" {
-					level.Error(logger).Log(
-						"msg", "Missing required vcd.url",
-					)
-
+					logger.Error("Missing required vcd.url")
 					return errors.New("missing required vcd.url")
 				}
 
 				if credentials.Username == "" {
-					level.Error(logger).Log(
-						"msg", "Missing required vcd.username",
-					)
-
+					logger.Error("Missing required vcd.username")
 					return errors.New("missing required vcd.username")
 				}
 
 				if credentials.Password == "" {
-					level.Error(logger).Log(
-						"msg", "Missing required vcd.password",
-					)
-
+					logger.Error("Missing required vcd.password")
 					return errors.New("missing required vcd.password")
 				}
 
 				if credentials.Org == "" {
-					level.Error(logger).Log(
-						"msg", "Missing required vcd.org",
-					)
-
+					logger.Error("Missing required vcd.org")
 					return errors.New("missing required vcd.org")
 				}
 
 				if credentials.Vdc == "" {
-					level.Error(logger).Log(
-						"msg", "Missing required vcd.vdc",
-					)
-
+					logger.Error("Missing required vcd.vdc")
 					return errors.New("missing required vcd.vdc")
 				}
 			}
 
 			if len(cfg.Target.Credentials) == 0 {
-				level.Error(logger).Log(
-					"msg", "Missing any credentials",
-				)
-
+				logger.Error("Missing any credentials")
 				return errors.New("missing any credentials")
 			}
 
