@@ -3,7 +3,7 @@ package client
 import (
 	"net/url"
 
-	"github.com/vmware/go-vcloud-director/v2/govcd"
+	"github.com/vmware/go-vcloud-director/v3/govcd"
 )
 
 // New initializes a new client.
