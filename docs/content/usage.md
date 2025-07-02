@@ -66,6 +66,7 @@ services:
     restart: always
     environment:
       - PROMETHEUS_VCD_LOG_PRETTY=true
+      - PROMETHEUS_VCD_OUTPUT_ENGINE=file
       - PROMETHEUS_VCD_OUTPUT_FILE=/etc/sd/vcd.json
       - PROMETHEUS_VCD_URL=https://vdc.example.com/api
       - PROMETHEUS_VCD_USERNAME=username
@@ -86,10 +87,11 @@ like this to the `docker-compose.yml` file:
 {{< highlight diff >}}
   vcd-sd:
 -   image: promhippie/prometheus-vcd-sd:latest
-+   image: promhippie/prometheus-vcd-sd:0.3.0
++   image: promhippie/prometheus-vcd-sd:x.x.x
     restart: always
     environment:
       - PROMETHEUS_VCD_LOG_PRETTY=true
+      - PROMETHEUS_VCD_OUTPUT_ENGINE=file
       - PROMETHEUS_VCD_OUTPUT_FILE=/etc/sd/vcd.json
       - PROMETHEUS_VCD_URL=https://vdc.example.com/api
       - PROMETHEUS_VCD_USERNAME=username
@@ -112,6 +114,7 @@ be able to read the generated JSON file:
 +   user: '65534'
     environment:
       - PROMETHEUS_VCD_LOG_PRETTY=true
+      - PROMETHEUS_VCD_OUTPUT_ENGINE=file
       - PROMETHEUS_VCD_OUTPUT_FILE=/etc/sd/vcd.json
       - PROMETHEUS_VCD_URL=https://vdc.example.com/api
       - PROMETHEUS_VCD_USERNAME=username
@@ -134,6 +137,7 @@ config format look at the [documentation](#web-configuration) section:
     environment:
 +     - PROMETHEUS_VCD_WEB_CONFIG=path/to/web-config.json
       - PROMETHEUS_VCD_LOG_PRETTY=true
+      - PROMETHEUS_VCD_OUTPUT_ENGINE=file
       - PROMETHEUS_VCD_OUTPUT_FILE=/etc/sd/vcd.json
       - PROMETHEUS_VCD_URL=https://vdc.example.com/api
       - PROMETHEUS_VCD_USERNAME=username
@@ -156,6 +160,7 @@ service discovery:
     restart: always
     environment:
       - PROMETHEUS_VCD_LOG_PRETTY=true
+-     - PROMETHEUS_VCD_OUTPUT_ENGINE=file
 +     - PROMETHEUS_VCD_OUTPUT_ENGINE=http
       - PROMETHEUS_VCD_OUTPUT_FILE=/etc/sd/vcd.json
       - PROMETHEUS_VCD_URL=https://vdc.example.com/api
