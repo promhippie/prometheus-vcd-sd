@@ -12,7 +12,8 @@
         "engine": "file",
         "file": "/etc/prometheus/vcd.json",
         "refresh": 30,
-        "credentials": [{
+        "credentials": [
+            {
                 "project": "example1",
                 "url": "https://vcd.example.com/api",
                 "insecure": true,

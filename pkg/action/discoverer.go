@@ -78,7 +78,7 @@ func (d *Discoverer) getTargets(_ context.Context) ([]*targetgroup.Group, error)
 			continue
 		}
 
-		defer config.Disconnect()
+		defer func() { _ = config.Disconnect() }()
 
 		nowOrg := time.Now()
 		org, err := config.Upstream.GetOrgByNameOrId(config.Organization)
@@ -243,7 +243,7 @@ func (d *Discoverer) getTargets(_ context.Context) ([]*targetgroup.Group, error)
 			}
 		}
 
-		config.Disconnect()
+		_ = config.Disconnect()
 	}
 
 	for k := range d.lasts {

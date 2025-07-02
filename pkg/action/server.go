@@ -173,14 +173,14 @@ func handler(cfg *config.Config, logger *slog.Logger) *chi.Mux {
 			w.Header().Set("Content-Type", "text/plain")
 			w.WriteHeader(http.StatusOK)
 
-			io.WriteString(w, http.StatusText(http.StatusOK))
+			_, _ = io.WriteString(w, http.StatusText(http.StatusOK))
 		})
 
 		root.Get("/readyz", func(w http.ResponseWriter, _ *http.Request) {
 			w.Header().Set("Content-Type", "text/plain")
 			w.WriteHeader(http.StatusOK)
 
-			io.WriteString(w, http.StatusText(http.StatusOK))
+			_, _ = io.WriteString(w, http.StatusText(http.StatusOK))
 		})
 
 		if cfg.Target.Engine == "http" {
@@ -204,7 +204,7 @@ func handler(cfg *config.Config, logger *slog.Logger) *chi.Mux {
 				}
 
 				w.WriteHeader(http.StatusOK)
-				w.Write(content)
+				_, _ = w.Write(content)
 			})
 		}
 	})

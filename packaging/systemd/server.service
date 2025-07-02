@@ -1,0 +1,20 @@
+[Unit]
+Description=Prometheus VMWare vCloud Director SD
+Documentation=https://promhippie.github.io/prometheus-vcd-sd/
+
+Requires=network.target
+After=network.target
+
+[Service]
+Type=simple
+User=prometheus-vcd-sd
+Group=prometheus-vcd-sd
+EnvironmentFile=-/etc/default/prometheus-vcd-sd
+EnvironmentFile=-/etc/sysconfig/prometheus-vcd-sd
+ExecStart=/usr/bin/prometheus-vcd-sd server $PROMETHEUS_VCD_ARGS
+WorkingDirectory=/var/lib/prometheus-vcd-sd
+Restart=always
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
