@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.1.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.0.0...v2.1.0) (2025-07-14)
+
+
+### Features
+
+* **deps:** update module github.com/mgechev/revive to v1.11.0 ([0c61113](https://github.com/promhippie/prometheus-vcd-sd/commit/0c61113bd901503aacdb64187f1c7568c2cb4a5d))
+
+
+### Bugfixes
+
+* **deps:** update golang docker tag to v1.24.5 ([eee9527](https://github.com/promhippie/prometheus-vcd-sd/commit/eee9527716039eecc753b68ed43070e9e0f206b3))
+* **deps:** update module github.com/golangci/golangci-lint/v2 to v2.2.2 ([2e494d3](https://github.com/promhippie/prometheus-vcd-sd/commit/2e494d341d50ce0272e80712b06bb8c9d0e2913f))
+
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([1fee9c1](https://github.com/promhippie/prometheus-vcd-sd/commit/1fee9c142c47c695fdc89a1f134bd8771c84d73d))
+* **flake:** updated lockfile [skip ci] ([7d050cc](https://github.com/promhippie/prometheus-vcd-sd/commit/7d050cc32e60f0c385f277b35bd471987cbb73b3))
+
 ## [2.0.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v1.0.0...v2.0.0) (2025-07-02)
 
 
