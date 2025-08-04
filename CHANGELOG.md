@@ -1,5 +1,29 @@
 # Changelog
 
+## [2.2.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.1.0...v2.2.0) (2025-08-04)
+
+
+### Features
+
+* **deps:** update module github.com/golangci/golangci-lint/v2 to v2.3.0 ([3eb260c](https://github.com/promhippie/prometheus-vcd-sd/commit/3eb260ccb4e710e10a86bee995b413ea9138c567))
+
+
+### Bugfixes
+
+* **deps:** update module github.com/golangci/golangci-lint/v2 to v2.3.1 ([d38ca15](https://github.com/promhippie/prometheus-vcd-sd/commit/d38ca151cdb1433e7c55fc240a564424da8cebc5))
+* **deps:** update module github.com/prometheus/client_golang to v1.23.0 ([3e9de66](https://github.com/promhippie/prometheus-vcd-sd/commit/3e9de6687928aa89bcc38b6b20b0ca58e8343d3a))
+* use correct name for systemd service ([bc64818](https://github.com/promhippie/prometheus-vcd-sd/commit/bc648180e71508568a8de5d96a879b1c0f574d1e))
+
+
+### Miscellaneous
+
+* **deps:** update docker digests ([465fe23](https://github.com/promhippie/prometheus-vcd-sd/commit/465fe238ae81805f07f6099d2aeb0ececc23f425))
+* **deps:** update golang:1.24.5-alpine3.21 docker digest to 6edc205 ([4828ae2](https://github.com/promhippie/prometheus-vcd-sd/commit/4828ae25a7277d0e2beef8493c434c1485a53390))
+* **deps:** update golang:1.24.5-alpine3.21 docker digest to 72ff633 ([63e4bca](https://github.com/promhippie/prometheus-vcd-sd/commit/63e4bca467eab8d8c4261496dcbeeba406d0d1ca))
+* **flake:** updated lockfile [skip ci] ([6b0dc87](https://github.com/promhippie/prometheus-vcd-sd/commit/6b0dc877135fd23fb2bd1b202c5fbdc7a4fe7cee))
+* **flake:** updated lockfile [skip ci] ([eba26b4](https://github.com/promhippie/prometheus-vcd-sd/commit/eba26b41dec62ed140c4e7751cef026cdbb8563c))
+* **flake:** updated lockfile [skip ci] ([54f4512](https://github.com/promhippie/prometheus-vcd-sd/commit/54f4512fbcace1a34315fe1b945859c474743f0b))
+
 ## [2.1.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.0.0...v2.1.0) (2025-07-14)
 
 
