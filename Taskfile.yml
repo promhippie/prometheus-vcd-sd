@@ -69,6 +69,8 @@ tasks:
           ./cmd/prometheus-vcd-sd
     env:
       CGO_ENABLED: "0"
+      GOOS: "{{ .GOOS }}"
+      GOARCH: "{{ .GOARCH }}"
     vars:
       IMPORT: github.com/promhippie/prometheus-vcd-sd
       VERSION:
