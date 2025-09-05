@@ -6,7 +6,7 @@ require (
 	github.com/go-chi/chi/v5 v5.2.3
 	github.com/joho/godotenv v1.5.1
 	github.com/oklog/run v1.2.0
-	github.com/prometheus/client_golang v1.23.1
+	github.com/prometheus/client_golang v1.23.2
 	github.com/prometheus/common v0.66.1
 	github.com/prometheus/exporter-toolkit v0.14.1
 	github.com/prometheus/prometheus v1.8.2-0.20210220213500-8c8de46003d1
