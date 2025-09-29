@@ -1,5 +1,46 @@
 # Changelog
 
+## [2.2.1](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.2.0...v2.2.1) (2025-09-29)
+
+
+### Bugfixes
+
+* correctly hand over goos/goarch to build task ([efc4865](https://github.com/promhippie/prometheus-vcd-sd/commit/efc48655de2c57c885845c54355f69d74fc2b09e))
+* **deps:** update golang docker tag to v1.24.6 ([6816e90](https://github.com/promhippie/prometheus-vcd-sd/commit/6816e90dd9999d3289dafb12ea7e88d7e0feef0b))
+* **deps:** update golang docker tag to v1.25.0 ([ec89d50](https://github.com/promhippie/prometheus-vcd-sd/commit/ec89d5001a36140ede41dc5f6b636444144398dc))
+* **deps:** update golang docker tag to v1.25.1 ([4625353](https://github.com/promhippie/prometheus-vcd-sd/commit/4625353514efe3c8d49c3843f048ec1be9691a69))
+* **deps:** update golang:1.25.0-alpine3.21 docker digest to a92c1ab ([99d58c5](https://github.com/promhippie/prometheus-vcd-sd/commit/99d58c524704e0af26e92e154d9a071d6bca8120))
+* **deps:** update golang:1.25.0-alpine3.21 docker digest to c8e1680 ([7929eab](https://github.com/promhippie/prometheus-vcd-sd/commit/7929eabe2fb2c4420d28abfffd3928ac3b121ccb))
+* **deps:** update golang:1.25.1-alpine3.21 docker digest to 331bde4 ([885447b](https://github.com/promhippie/prometheus-vcd-sd/commit/885447bbd95782193476e94a1bbda188c265dc24))
+* **deps:** update golang:1.25.1-alpine3.21 docker digest to a887c10 ([3be40d4](https://github.com/promhippie/prometheus-vcd-sd/commit/3be40d412579f806886a7413fc45878b67265555))
+* **deps:** update module github.com/go-chi/chi/v5 to v5.2.3 ([2062151](https://github.com/promhippie/prometheus-vcd-sd/commit/2062151b3ccc934eed655cbe53eadaadc26919f2))
+* **deps:** update module github.com/golangci/golangci-lint/v2 to v2.4.0 ([b17f473](https://github.com/promhippie/prometheus-vcd-sd/commit/b17f47301282a1290b4c029858717047521f0484))
+* **deps:** update module github.com/golangci/golangci-lint/v2 to v2.5.0 ([983a8e7](https://github.com/promhippie/prometheus-vcd-sd/commit/983a8e7dcbe077700aa22780ce23f690aaa7bdb0))
+* **deps:** update module github.com/mgechev/revive to v1.12.0 ([58b45ed](https://github.com/promhippie/prometheus-vcd-sd/commit/58b45ed873df391d47819e997be3d5fadf5ba14d))
+* **deps:** update module github.com/prometheus/client_golang to v1.23.1 ([f34b654](https://github.com/promhippie/prometheus-vcd-sd/commit/f34b65452d09e748f25c511fcbf4937a0bb8f74a))
+* **deps:** update module github.com/prometheus/client_golang to v1.23.2 ([8005a3f](https://github.com/promhippie/prometheus-vcd-sd/commit/8005a3f6a17fab2728a29c75185d88ca488488b1))
+* **deps:** update module github.com/prometheus/common to v0.66.0 ([639fe19](https://github.com/promhippie/prometheus-vcd-sd/commit/639fe19d689f633aead23592700247bf33ae930e))
+* **deps:** update module github.com/prometheus/common to v0.66.1 ([1ea0a20](https://github.com/promhippie/prometheus-vcd-sd/commit/1ea0a20ac0b56e246c7360a77217d2362dbb9304))
+* **deps:** update module github.com/prometheus/exporter-toolkit to v0.14.1 ([01929e4](https://github.com/promhippie/prometheus-vcd-sd/commit/01929e4423311b74c1a9f7f440e65112140d216f))
+* **deps:** update module github.com/stretchr/testify to v1.11.0 ([91afc23](https://github.com/promhippie/prometheus-vcd-sd/commit/91afc23ae44c2c441830ba29b324c372430eff11))
+* **deps:** update module github.com/stretchr/testify to v1.11.1 ([3c8ccb7](https://github.com/promhippie/prometheus-vcd-sd/commit/3c8ccb74d7b28b6f4f89c045066e0055bdce5698))
+* **deps:** update module github.com/urfave/cli/v3 to v3.3.9 ([d84682c](https://github.com/promhippie/prometheus-vcd-sd/commit/d84682c2fefc990c96347ba19ae85d0454129e99))
+* **deps:** update module github.com/urfave/cli/v3 to v3.4.0 ([82ff7df](https://github.com/promhippie/prometheus-vcd-sd/commit/82ff7df19f85de24dd0e4c6a22b7f98d9f570ee3))
+* **deps:** update module github.com/urfave/cli/v3 to v3.4.1 ([b363b43](https://github.com/promhippie/prometheus-vcd-sd/commit/b363b435a176712668097187d6a8ee274ee406cc))
+
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([516b649](https://github.com/promhippie/prometheus-vcd-sd/commit/516b6499e7860059220cb968eb6ec119ec8d6e39))
+* **flake:** updated lockfile [skip ci] ([9c8a460](https://github.com/promhippie/prometheus-vcd-sd/commit/9c8a4606a3188fc097fece62df96bb048195ecc5))
+* **flake:** updated lockfile [skip ci] ([da94dfe](https://github.com/promhippie/prometheus-vcd-sd/commit/da94dfea537336cd044c7b4111cc1a4ea61e904e))
+* **flake:** updated lockfile [skip ci] ([60a7f88](https://github.com/promhippie/prometheus-vcd-sd/commit/60a7f886fe0434dab9433044f8c6d37fbb4d6d0a))
+* **flake:** updated lockfile [skip ci] ([9571d55](https://github.com/promhippie/prometheus-vcd-sd/commit/9571d55b46c0ffec18ad4127a277d49f9e8490ba))
+* **flake:** updated lockfile [skip ci] ([18444ee](https://github.com/promhippie/prometheus-vcd-sd/commit/18444ee951d4a5e4f7068fdbac6adb6929c6a164))
+* **flake:** updated lockfile [skip ci] ([cf72c02](https://github.com/promhippie/prometheus-vcd-sd/commit/cf72c02f65e4c12e8bae1b1905e59356d3382ba9))
+* **flake:** updated lockfile [skip ci] ([564089a](https://github.com/promhippie/prometheus-vcd-sd/commit/564089a360cf359e6f971414b3da801f53dea148))
+* move from baltorepo to cloudsmith ([a924379](https://github.com/promhippie/prometheus-vcd-sd/commit/a9243797cf9d95c659bdecec9415e307880a4b92))
+
 ## [2.2.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.1.0...v2.2.0) (2025-08-04)
 
 
