@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.2.2](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.2.1...v2.2.2) (2025-10-13)
+
+
+### Bugfixes
+
+* **deps:** update alpine:3.22 docker digest to 4b7ce07 ([03b2e55](https://github.com/promhippie/prometheus-vcd-sd/commit/03b2e554622d5dca73db35dc715f72c1a3919a6a))
+* **deps:** update golang docker tag to v1.25.2 ([cddcff0](https://github.com/promhippie/prometheus-vcd-sd/commit/cddcff0d638cb1ec1a293314f068865ffa7fa414))
+* **deps:** update golang:1.25.2-alpine3.21 docker digest to 0134653 ([0765637](https://github.com/promhippie/prometheus-vcd-sd/commit/0765637f8d2cd870eb6eb66aa389ff5c588f5050))
+* **deps:** update golang:1.25.2-alpine3.21 docker digest to 0ae17b3 ([7faf9ab](https://github.com/promhippie/prometheus-vcd-sd/commit/7faf9ab81b09992ab0627c4e6bcb5954035c96e9))
+* **deps:** update golang:1.25.2-alpine3.21 docker digest to 7300a8d ([7a61710](https://github.com/promhippie/prometheus-vcd-sd/commit/7a61710cd53ccaed55e5b673bda96c108487dad1))
+* **deps:** update module github.com/prometheus/common to v0.67.1 ([8ed06d9](https://github.com/promhippie/prometheus-vcd-sd/commit/8ed06d9e06c263474fb8dfc29d253bf85639ab92))
+
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([c8011de](https://github.com/promhippie/prometheus-vcd-sd/commit/c8011de46e0bb0b452183c22540fb6544358cac4))
+* **flake:** updated lockfile [skip ci] ([28a22b1](https://github.com/promhippie/prometheus-vcd-sd/commit/28a22b15c26c7b07e24a4398305307f007a46505))
+
 ## [2.2.1](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.2.0...v2.2.1) (2025-09-29)
 
 
