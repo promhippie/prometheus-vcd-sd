@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.2.3](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.2.2...v2.2.3) (2025-11-03)
+
+
+### Bugfixes
+
+* **deps:** update golang docker tag to v1.25.3 ([3899775](https://github.com/promhippie/prometheus-vcd-sd/commit/3899775a32c7746602b9263893347139363f2c43))
+* **deps:** update golang:1.25.3-alpine3.21 docker digest to 0c9f3e0 ([5a4d29c](https://github.com/promhippie/prometheus-vcd-sd/commit/5a4d29c64c909cfa693f711c5e07121b340dad4c))
+* **deps:** update module github.com/golangci/golangci-lint/v2 to v2.6.0 ([1d6d49d](https://github.com/promhippie/prometheus-vcd-sd/commit/1d6d49da3700fb7cf9ca1da72c0e7816667c4fa1))
+* **deps:** update module github.com/prometheus/common to v0.67.2 ([c42c1b8](https://github.com/promhippie/prometheus-vcd-sd/commit/c42c1b8a3f1a8a7cf2f53acd8c856814d6029ab8))
+* **deps:** update module github.com/prometheus/exporter-toolkit to v0.15.0 ([ed8e227](https://github.com/promhippie/prometheus-vcd-sd/commit/ed8e2278d384ccec57b8d1fe1cbaa0e57df8041f))
+* **deps:** update module github.com/urfave/cli/v3 to v3.5.0 ([ca8101c](https://github.com/promhippie/prometheus-vcd-sd/commit/ca8101ca13e6fa9945f64b70890dde26b4208ad0))
+
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([e0fe62c](https://github.com/promhippie/prometheus-vcd-sd/commit/e0fe62cdff1fbc85c5a864ca8598f4ef5e8cbaf5))
+* **flake:** updated lockfile [skip ci] ([59629b6](https://github.com/promhippie/prometheus-vcd-sd/commit/59629b69abec637aeb15c2fad48540735f5d656f))
+* **flake:** updated lockfile [skip ci] ([e616967](https://github.com/promhippie/prometheus-vcd-sd/commit/e616967dd9d34cacb9e1250e67a3f74477800fbe))
+
 ## [2.2.2](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.2.1...v2.2.2) (2025-10-13)
 
 
