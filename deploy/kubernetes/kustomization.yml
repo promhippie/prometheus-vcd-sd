@@ -22,6 +22,6 @@ secretGenerator:
 images:
   - name: prometheus-vcd-sd
     newName: quay.io/promhippie/prometheus-vcd-sd
-    newTag: latest@sha256:dfd051e030b2c5282569cf3495abd880d6caad6149f418ce0aa44ed509e5f58f
+    newTag: latest@sha256:0679994f2b107f9b8223e939737b7fe1cfa3518a16f3d496638c3e56b05cd2c8
 
 ...
