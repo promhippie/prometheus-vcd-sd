@@ -1,5 +1,51 @@
 # Changelog
 
+## [2.3.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.2.4...v2.3.0) (2025-12-15)
+
+
+### Features
+
+* **minor:** update alpine docker tag to v3.23 ([#436](https://github.com/promhippie/prometheus-vcd-sd/issues/436)) ([77e5761](https://github.com/promhippie/prometheus-vcd-sd/commit/77e5761e096c321805f203cd375b0d0487937585))
+
+
+### Bugfixes
+
+* **deps:** pin quay.io/promhippie/prometheus-vcd-sd docker tag to 7f2c24f ([bff36b7](https://github.com/promhippie/prometheus-vcd-sd/commit/bff36b73d2c114b55bc7efee0dc77a857f1e43b6))
+* **deps:** update module github.com/prometheus/common to v0.67.3 ([bff952a](https://github.com/promhippie/prometheus-vcd-sd/commit/bff952addc37c2ded4df271623c23d6eb84a90de))
+* **deps:** update quay.io/promhippie/prometheus-vcd-sd:latest docker digest to 0679994 ([8902424](https://github.com/promhippie/prometheus-vcd-sd/commit/8902424db63c35ce3164c79ac58c0e2e02b2a96f))
+* **deps:** update quay.io/promhippie/prometheus-vcd-sd:latest docker digest to 286c471 ([02569aa](https://github.com/promhippie/prometheus-vcd-sd/commit/02569aaaa384bac559793a76e38e5bd8fd48521a))
+* **deps:** update quay.io/promhippie/prometheus-vcd-sd:latest docker digest to 2a3dd95 ([b24aad6](https://github.com/promhippie/prometheus-vcd-sd/commit/b24aad6bd4b352866922c8fe1ed3dd52898bfcea))
+* **deps:** update quay.io/promhippie/prometheus-vcd-sd:latest docker digest to 2dd5ed7 ([2148bc1](https://github.com/promhippie/prometheus-vcd-sd/commit/2148bc1aea0dca765c528169e41617872c8b4be0))
+* **deps:** update quay.io/promhippie/prometheus-vcd-sd:latest docker digest to 3122bc6 ([f66c3ac](https://github.com/promhippie/prometheus-vcd-sd/commit/f66c3acd761681b6eb04e57988fe6c92e453a83f))
+* **deps:** update quay.io/promhippie/prometheus-vcd-sd:latest docker digest to 4315ffc ([54ed24c](https://github.com/promhippie/prometheus-vcd-sd/commit/54ed24c41d8b67ca6e012b8ef1f31a727063db81))
+* **deps:** update quay.io/promhippie/prometheus-vcd-sd:latest docker digest to 491c1ed ([a82384e](https://github.com/promhippie/prometheus-vcd-sd/commit/a82384e98658e43d7946234dad854021d60a75cd))
+* **deps:** update quay.io/promhippie/prometheus-vcd-sd:latest docker digest to 5b2e575 ([36cc78d](https://github.com/promhippie/prometheus-vcd-sd/commit/36cc78db53d7b522d426a19cfed61175b5d5374f))
+* **deps:** update quay.io/promhippie/prometheus-vcd-sd:latest docker digest to 6abb423 ([c9682ac](https://github.com/promhippie/prometheus-vcd-sd/commit/c9682ac087cd9418d884371b860d0029570bc4e7))
+* **deps:** update quay.io/promhippie/prometheus-vcd-sd:latest docker digest to 793686d ([7d582fb](https://github.com/promhippie/prometheus-vcd-sd/commit/7d582fb44da80e2e9f5f36d18ddb9a13e9d4fb3b))
+* **deps:** update quay.io/promhippie/prometheus-vcd-sd:latest docker digest to 88f60b9 ([3967d8b](https://github.com/promhippie/prometheus-vcd-sd/commit/3967d8be727a0b3a272566a5e82bf0300ddd3d09))
+* **deps:** update quay.io/promhippie/prometheus-vcd-sd:latest docker digest to 92d1238 ([17db0cc](https://github.com/promhippie/prometheus-vcd-sd/commit/17db0cce22cdf810126130bfd47ba4ad9730f598))
+* **deps:** update quay.io/promhippie/prometheus-vcd-sd:latest docker digest to 9d383e6 ([de2200f](https://github.com/promhippie/prometheus-vcd-sd/commit/de2200f97d6d1677e4ae63dcea04c3a8507331b3))
+* **deps:** update quay.io/promhippie/prometheus-vcd-sd:latest docker digest to a0a6a5a ([34edcad](https://github.com/promhippie/prometheus-vcd-sd/commit/34edcad659549e34c4670feb8b814efafa51dd25))
+* **deps:** update quay.io/promhippie/prometheus-vcd-sd:latest docker digest to b35abcf ([52122e3](https://github.com/promhippie/prometheus-vcd-sd/commit/52122e39691557619cf3f00c3ed297f99d28514a))
+* **deps:** update quay.io/promhippie/prometheus-vcd-sd:latest docker digest to c37d735 ([b7b2950](https://github.com/promhippie/prometheus-vcd-sd/commit/b7b295054d8ed5b632ebe0ee9bbd03952bddfdbd))
+* **deps:** update quay.io/promhippie/prometheus-vcd-sd:latest docker digest to ce030ab ([866647e](https://github.com/promhippie/prometheus-vcd-sd/commit/866647e805121d3fc1c79062dbdad99c9e4c10ef))
+* **deps:** update quay.io/promhippie/prometheus-vcd-sd:latest docker digest to dfd051e ([6f0850f](https://github.com/promhippie/prometheus-vcd-sd/commit/6f0850fabb3f4c4bc452098cc53f13a4ba328d80))
+* **deps:** update quay.io/promhippie/prometheus-vcd-sd:latest docker digest to e83e1a3 ([9cd3e06](https://github.com/promhippie/prometheus-vcd-sd/commit/9cd3e061f098ee222cc80210516613a720ff8f61))
+* **deps:** update quay.io/promhippie/prometheus-vcd-sd:latest docker digest to fdc54d9 ([ae4101d](https://github.com/promhippie/prometheus-vcd-sd/commit/ae4101df7a8119adf06f4c324276aefe996a3cb9))
+* **patch:** update golang docker tag to v1.25.5 ([#435](https://github.com/promhippie/prometheus-vcd-sd/issues/435)) ([a05daf4](https://github.com/promhippie/prometheus-vcd-sd/commit/a05daf4428d4d4115050c73c66381bb63b62c7e4))
+* **patch:** update module github.com/prometheus/common to v0.67.4 ([d4deb52](https://github.com/promhippie/prometheus-vcd-sd/commit/d4deb52a8735a091c59f99beb82ab3f13e3a1634))
+
+
+### Miscellaneous
+
+* **deps:** bump golang.org/x/crypto from 0.44.0 to 0.45.0 ([5bc1856](https://github.com/promhippie/prometheus-vcd-sd/commit/5bc18569d9b37b4c365299c7cd7d6a585f526f8c))
+* drop issue and pull request template ([fd0828b](https://github.com/promhippie/prometheus-vcd-sd/commit/fd0828bd6a56f2d2fdc54105f32f8b73f4992f26))
+* **flake:** updated lockfile [skip ci] ([a5d7ddd](https://github.com/promhippie/prometheus-vcd-sd/commit/a5d7ddda370a8f70aee7b646261eee9d5d4173cd))
+* **flake:** updated lockfile [skip ci] ([ff5e195](https://github.com/promhippie/prometheus-vcd-sd/commit/ff5e1954bcc18f167e1914aa526a6eb4965be845))
+* **flake:** updated lockfile [skip ci] ([2d09a13](https://github.com/promhippie/prometheus-vcd-sd/commit/2d09a13ddda426a75a50c74809f24c4a5de3cb74))
+* **flake:** updated lockfile [skip ci] ([47270f2](https://github.com/promhippie/prometheus-vcd-sd/commit/47270f2293ca600b42b0179bdd0df403808e966b))
+* just format some yaml comment ([3790948](https://github.com/promhippie/prometheus-vcd-sd/commit/3790948e84d9c095eddb3d537ffd5d40851387c2))
+
 ## [2.2.4](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.2.3...v2.2.4) (2025-11-17)
 
 
