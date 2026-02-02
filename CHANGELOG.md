@@ -1,5 +1,27 @@
 # Changelog
 
+## [2.3.1](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.3.0...v2.3.1) (2026-02-02)
+
+### Bugfixes
+
+* **deps:** update alpine:3.23 docker digest to 2510918 ([#460](https://github.com/promhippie/prometheus-vcd-sd/issues/460)) ([d88b238](https://github.com/promhippie/prometheus-vcd-sd/commit/d88b238fd83989d8ef10387723e3d8da44e066c5))
+* **deps:** update alpine:3.23 docker digest to 865b95f ([#446](https://github.com/promhippie/prometheus-vcd-sd/issues/446)) ([6332087](https://github.com/promhippie/prometheus-vcd-sd/commit/63320871a1ebdd95eead0c145ef4666a049660f1))
+* **deps:** update alpine:3.23 docker digest to be171b5 ([#445](https://github.com/promhippie/prometheus-vcd-sd/issues/445)) ([9d62366](https://github.com/promhippie/prometheus-vcd-sd/commit/9d623660f70f24b314d1c284819d72ac47cb1729))
+* **patch:** update module github.com/go-chi/chi/v5 to v5.2.4 ([#456](https://github.com/promhippie/prometheus-vcd-sd/issues/456)) ([ffc82fa](https://github.com/promhippie/prometheus-vcd-sd/commit/ffc82fa39ba91c29c752bff2094f804312ce7ce5))
+* **patch:** update module github.com/prometheus/common to v0.67.5 ([#452](https://github.com/promhippie/prometheus-vcd-sd/issues/452)) ([86ac204](https://github.com/promhippie/prometheus-vcd-sd/commit/86ac204c3376d5861e78a1c2d25d2a61b2b49ef5))
+* **patch:** update module github.com/prometheus/exporter-toolkit to v0.15.1 ([#451](https://github.com/promhippie/prometheus-vcd-sd/issues/451)) ([cce5f5b](https://github.com/promhippie/prometheus-vcd-sd/commit/cce5f5b504d3f09f4fda3474e3e1987553685d21))
+* **patch:** update module github.com/urfave/cli/v3 to v3.6.2 ([#458](https://github.com/promhippie/prometheus-vcd-sd/issues/458)) ([e37237e](https://github.com/promhippie/prometheus-vcd-sd/commit/e37237e6f6a65c4fe68cf3e5f1d6023038873a7a))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([59a9c73](https://github.com/promhippie/prometheus-vcd-sd/commit/59a9c73522e85aed03695b0b1500a61459fcf4ac))
+* **flake:** updated lockfile [skip ci] ([4b4a42b](https://github.com/promhippie/prometheus-vcd-sd/commit/4b4a42be32ff85fe15e5e1efcfcc7b3e3c3da7c5))
+* **flake:** updated lockfile [skip ci] ([f4d702d](https://github.com/promhippie/prometheus-vcd-sd/commit/f4d702de87d3155056a5db059c57004ff9079f4a))
+* **flake:** updated lockfile [skip ci] ([5f66a38](https://github.com/promhippie/prometheus-vcd-sd/commit/5f66a38ccf42db98a75112ced7048412220b7c28))
+* **flake:** updated lockfile [skip ci] ([7e9fe88](https://github.com/promhippie/prometheus-vcd-sd/commit/7e9fe88232553faa1f7a9b4cd4d8ecf1a48ed3be))
+* **flake:** updated lockfile [skip ci] ([e7828b5](https://github.com/promhippie/prometheus-vcd-sd/commit/e7828b57bf683a4bb6bcbc3cf8b06bc48d07eb72))
+* **flake:** updated lockfile [skip ci] ([c978ec6](https://github.com/promhippie/prometheus-vcd-sd/commit/c978ec6cddc71902fdbb94357a250f138c180632))
+
 ## [2.3.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.2.4...v2.3.0) (2025-12-15)
 
 
