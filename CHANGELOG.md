@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.3.2](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.3.1...v2.3.2) (2026-02-09)
+
+### Bugfixes
+
+* **patch:** update module github.com/go-chi/chi/v5 to v5.2.5 ([#462](https://github.com/promhippie/prometheus-vcd-sd/issues/462)) ([13821fb](https://github.com/promhippie/prometheus-vcd-sd/commit/13821fbee0b3f9c7baa19bcd50b9dc6fbfd7934f))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([6a555a7](https://github.com/promhippie/prometheus-vcd-sd/commit/6a555a70bfbf0cf238f1a595286a099586dc4dd2))
+
 ## [2.3.1](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.3.0...v2.3.1) (2026-02-02)
 
 ### Bugfixes
