@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.4.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.3.2...v2.4.0) (2026-03-23)
+
+### Features
+
+* **minor:** update module github.com/urfave/cli/v3 to v3.7.0 ([#464](https://github.com/promhippie/prometheus-vcd-sd/issues/464)) ([6d0a4d1](https://github.com/promhippie/prometheus-vcd-sd/commit/6d0a4d15c778e2f50b6ef6de93de70b7c970db4f))
+
+### Miscellaneous
+
+* enable skip-package-name-collision-with-go-std for revive ([6ffd588](https://github.com/promhippie/prometheus-vcd-sd/commit/6ffd588505adf6db60c12b0c2315d51a2758547d))
+* **flake:** updated lockfile [skip ci] ([833b999](https://github.com/promhippie/prometheus-vcd-sd/commit/833b999c88b33cc698a6b677dea2af087b73f583))
+* **flake:** updated lockfile [skip ci] ([bc68e8f](https://github.com/promhippie/prometheus-vcd-sd/commit/bc68e8f90afc59aea2bfccaa665a3eb4f2959797))
+* **flake:** updated lockfile [skip ci] ([517fa47](https://github.com/promhippie/prometheus-vcd-sd/commit/517fa47b0da756caca5b35862596e8c025523456))
+* **flake:** updated lockfile [skip ci] ([9b93076](https://github.com/promhippie/prometheus-vcd-sd/commit/9b93076b3f35c3009646d9aa1ae186fd6d748442))
+* **flake:** updated lockfile [skip ci] ([8d20fec](https://github.com/promhippie/prometheus-vcd-sd/commit/8d20feca8c9a489d8196094430c2dfc88f7f8b6f))
+* **flake:** updated lockfile [skip ci] ([5e82bf3](https://github.com/promhippie/prometheus-vcd-sd/commit/5e82bf33b22017e121247a4701739092e4b94fec))
+* replace nixfmt package ([0603c70](https://github.com/promhippie/prometheus-vcd-sd/commit/0603c702ecc225468f10dc6780dcdaca1d952cbf))
+
 ## [2.3.2](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.3.1...v2.3.2) (2026-02-09)
 
 ### Bugfixes
