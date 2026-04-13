@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.5.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.4.0...v2.5.0) (2026-04-13)
+
+### Features
+
+* **minor:** update module github.com/prometheus/exporter-toolkit to v0.16.0 ([#473](https://github.com/promhippie/prometheus-vcd-sd/issues/473)) ([bd76508](https://github.com/promhippie/prometheus-vcd-sd/commit/bd76508d7eb983285ff140c8499916038e5685fd))
+* **minor:** update module github.com/urfave/cli/v3 to v3.8.0 ([#472](https://github.com/promhippie/prometheus-vcd-sd/issues/472)) ([5494026](https://github.com/promhippie/prometheus-vcd-sd/commit/5494026b8c5dbd0f37c1b4301c9c7cbfd7eed1c3))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([57c6dc2](https://github.com/promhippie/prometheus-vcd-sd/commit/57c6dc260b26adcb13036c38cc0bf3e2bff43b68))
+* **flake:** updated lockfile [skip ci] ([6e10dac](https://github.com/promhippie/prometheus-vcd-sd/commit/6e10dac08f7ecd9d1236c8e560b2a4531a47fdea))
+* **flake:** updated lockfile [skip ci] ([201b1dc](https://github.com/promhippie/prometheus-vcd-sd/commit/201b1dca81c0f36732d9c1c0ea03dd701376647a))
+
 ## [2.4.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.3.2...v2.4.0) (2026-03-23)
 
 ### Features
