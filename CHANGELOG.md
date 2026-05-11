@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.5.1](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.5.0...v2.5.1) (2026-05-11)
+
+### Bugfixes
+
+* **deps:** update alpine:3.23 docker digest to 5b10f43 ([#476](https://github.com/promhippie/prometheus-vcd-sd/issues/476)) ([ec3b68d](https://github.com/promhippie/prometheus-vcd-sd/commit/ec3b68d52f99a0fcf27af0d852b99f2807248560))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([18c3b53](https://github.com/promhippie/prometheus-vcd-sd/commit/18c3b53379b2e9a7e7b19a83745432fdb9f57878))
+* **flake:** updated lockfile [skip ci] ([6fbe167](https://github.com/promhippie/prometheus-vcd-sd/commit/6fbe16721fd578cce5bd97ff4d330c0466171fce))
+* **flake:** updated lockfile [skip ci] ([9842d0a](https://github.com/promhippie/prometheus-vcd-sd/commit/9842d0a4a7a4e95a29a01fb5f0f246e30d18d1bb))
+* **flake:** updated lockfile [skip ci] ([e544e73](https://github.com/promhippie/prometheus-vcd-sd/commit/e544e73d944d59ddb14c09100d6ab7867d68f2ba))
+
 ## [2.5.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.4.0...v2.5.0) (2026-04-13)
 
 ### Features
