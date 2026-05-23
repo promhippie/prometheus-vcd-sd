@@ -1,6 +1,6 @@
 module github.com/promhippie/prometheus-vcd-sd
 
-go 1.26.0
+go 1.26.3
 
 require (
 	github.com/go-chi/chi/v5 v5.2.5
