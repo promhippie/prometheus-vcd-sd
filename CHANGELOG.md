@@ -1,5 +1,27 @@
 # Changelog
 
+## [2.6.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.5.1...v2.6.0) (2026-06-01)
+
+### Features
+
+* **minor:** update module github.com/go-chi/chi/v5 to v5.3.0 ([#484](https://github.com/promhippie/prometheus-vcd-sd/issues/484)) ([1441689](https://github.com/promhippie/prometheus-vcd-sd/commit/144168953838e113de93371626f73c7056d607ec))
+* **minor:** update module github.com/prometheus/common to v0.68.0 ([#486](https://github.com/promhippie/prometheus-vcd-sd/issues/486)) ([4304b01](https://github.com/promhippie/prometheus-vcd-sd/commit/4304b01ebcff58472f7b5a9e160344f05f2f0d97))
+* **minor:** update module github.com/urfave/cli/v3 to v3.9.0 ([#482](https://github.com/promhippie/prometheus-vcd-sd/issues/482)) ([7631261](https://github.com/promhippie/prometheus-vcd-sd/commit/763126122c5ba38159466028ff4b55cb32073647))
+* **minor:** update module github.com/vmware/go-vcloud-director/v3 to v3.1.0 ([#483](https://github.com/promhippie/prometheus-vcd-sd/issues/483)) ([75e75ca](https://github.com/promhippie/prometheus-vcd-sd/commit/75e75ca0f869cdfa9fbf2697220ae95d44687783))
+* upgrade required go version to 1.26 ([77e9fdd](https://github.com/promhippie/prometheus-vcd-sd/commit/77e9fdd67185a3299026c14d35e0d45c7f7ecf0a))
+
+### Bugfixes
+
+* **deps:** pin golang docker tag to 91eda97 ([#485](https://github.com/promhippie/prometheus-vcd-sd/issues/485)) ([b7337dc](https://github.com/promhippie/prometheus-vcd-sd/commit/b7337dc7ed223ac04ceca3c3c5b37ea04f2e830c))
+* upgrade go to at least 1.26.3 for vcd library ([817665b](https://github.com/promhippie/prometheus-vcd-sd/commit/817665b7336dae7340439d2065d3b9bb424248a7))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([2121c81](https://github.com/promhippie/prometheus-vcd-sd/commit/2121c8144c11094684ff1e194facf707c3e94aa7))
+* **flake:** updated lockfile [skip ci] ([3ffa89f](https://github.com/promhippie/prometheus-vcd-sd/commit/3ffa89f6dd8a373d247a1cfed7d50a56dc6213c8))
+* **flake:** updated lockfile [skip ci] ([85d8c69](https://github.com/promhippie/prometheus-vcd-sd/commit/85d8c6938f00527efe2893dd83d5d5c39bffb249))
+* switch flake input to 25.11 release ([921beba](https://github.com/promhippie/prometheus-vcd-sd/commit/921beba6311ae75f7a5b3fb83fc2d65fef7ceed5))
+
 ## [2.5.1](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.5.0...v2.5.1) (2026-05-11)
 
 ### Bugfixes
