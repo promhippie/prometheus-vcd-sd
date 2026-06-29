@@ -1,5 +1,7 @@
 # Changelog
 
+## [2.7.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.6.0...v2.7.0) (2026-06-29)
+
 ## [2.6.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.5.1...v2.6.0) (2026-06-01)
 
 ### Features
