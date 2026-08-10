@@ -1,5 +1,25 @@
 # Changelog
 
+## [2.9.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.8.0...v2.9.0) (2026-08-10)
+
+### Features
+
+* **minor:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.21.0 ([#517](https://github.com/promhippie/prometheus-vcd-sd/issues/517)) ([623383e](https://github.com/promhippie/prometheus-vcd-sd/commit/623383eac4caf52ea6a59b22ea69f2308de3ca90))
+* **minor:** update dependency golangci-lint to v2.12.2 ([0ff7049](https://github.com/promhippie/prometheus-vcd-sd/commit/0ff70493d99ea14023995fa5c1797580bb70837e))
+* **minor:** update module github.com/prometheus/client_golang to v1.24.0 ([#512](https://github.com/promhippie/prometheus-vcd-sd/issues/512)) ([9040367](https://github.com/promhippie/prometheus-vcd-sd/commit/9040367d569e153b0bad8193ce1ca3cadeee8f18))
+* **minor:** update module github.com/prometheus/common to v0.70.0 ([#509](https://github.com/promhippie/prometheus-vcd-sd/issues/509)) ([0a51b3a](https://github.com/promhippie/prometheus-vcd-sd/commit/0a51b3a4dcdf8292e4302087d2b1bb37688fa05f))
+* restructure repo and build processes ([7dc072c](https://github.com/promhippie/prometheus-vcd-sd/commit/7dc072c9b77a6fb6f003e09b49af7c851997f474))
+* upgrade prometheus library and change adapter call ([a1833a0](https://github.com/promhippie/prometheus-vcd-sd/commit/a1833a0628e712ee5a4daa94216dc48c62778eb0))
+
+### Bugfixes
+
+* **deps:** update golang:1.26.5-alpine docker digest to 0178a64 ([#508](https://github.com/promhippie/prometheus-vcd-sd/issues/508)) ([2362c97](https://github.com/promhippie/prometheus-vcd-sd/commit/2362c9727073f84d175e8877993515d5e8ac4e7b))
+* **patch:** update dependency cosign to v3.1.3 ([#519](https://github.com/promhippie/prometheus-vcd-sd/issues/519)) ([4cede66](https://github.com/promhippie/prometheus-vcd-sd/commit/4cede6600c3169dd25c14882a4d5e1e815535255))
+* **patch:** update golang docker tag to v1.26.5 ([#507](https://github.com/promhippie/prometheus-vcd-sd/issues/507)) ([0c87132](https://github.com/promhippie/prometheus-vcd-sd/commit/0c87132142acd5f1f5ce2450e111af6fcab8b3a5))
+* **patch:** update module github.com/go-chi/chi/v5 to v5.3.1 ([#506](https://github.com/promhippie/prometheus-vcd-sd/issues/506)) ([16c8f95](https://github.com/promhippie/prometheus-vcd-sd/commit/16c8f95e1365511d2d4ea65a743af3c71193f83b))
+* **patch:** update module github.com/prometheus/client_golang to v1.24.1 ([#514](https://github.com/promhippie/prometheus-vcd-sd/issues/514)) ([69da4df](https://github.com/promhippie/prometheus-vcd-sd/commit/69da4df58cf713909fb2004af5191decfad896c3))
+* **patch:** update module github.com/prometheus/common to v0.70.1 ([#513](https://github.com/promhippie/prometheus-vcd-sd/issues/513)) ([421bee6](https://github.com/promhippie/prometheus-vcd-sd/commit/421bee63d091a5225a70f1d5378b976a924fd1d9))
+
 ## [2.8.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.7.0...v2.8.0) (2026-07-06)
 
 ## [2.7.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.6.0...v2.7.0) (2026-06-29)
