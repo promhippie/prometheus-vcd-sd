@@ -11,7 +11,7 @@ require (
 	github.com/prometheus/exporter-toolkit v0.17.1
 	github.com/prometheus/prometheus v0.313.2
 	github.com/stretchr/testify v1.11.1
-	github.com/urfave/cli/v3 v3.10.1
+	github.com/urfave/cli/v3 v3.11.0
 	github.com/vmware/go-vcloud-director/v3 v3.1.1
 	gopkg.in/yaml.v3 v3.0.1
 )
