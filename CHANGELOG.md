@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.10.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.9.0...v2.10.0) (2026-08-17)
+
+### Features
+
+* **minor:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.22.0 ([#522](https://github.com/promhippie/prometheus-vcd-sd/issues/522)) ([5c94922](https://github.com/promhippie/prometheus-vcd-sd/commit/5c949224b320cbf65be39308f825f66ed67cb9fb))
+* **minor:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.23.0 ([#526](https://github.com/promhippie/prometheus-vcd-sd/issues/526)) ([9c27311](https://github.com/promhippie/prometheus-vcd-sd/commit/9c273110bb55e1784f4d9e16ec59f649bf55c907))
+* **minor:** update dependency hugo-extended to v0.165.0 ([#523](https://github.com/promhippie/prometheus-vcd-sd/issues/523)) ([a9adf2d](https://github.com/promhippie/prometheus-vcd-sd/commit/a9adf2dca8fc7d3c67d872c30b2abe79e72cdf17))
+* **minor:** update module github.com/urfave/cli/v3 to v3.11.0 ([#527](https://github.com/promhippie/prometheus-vcd-sd/issues/527)) ([9f2b68f](https://github.com/promhippie/prometheus-vcd-sd/commit/9f2b68fed23a469f632acf923b6363051d4d2d2e))
+
+### Bugfixes
+
+* **deps:** update golang:1.26.6-alpine docker digest to 3889b42 ([#528](https://github.com/promhippie/prometheus-vcd-sd/issues/528)) ([cb536b1](https://github.com/promhippie/prometheus-vcd-sd/commit/cb536b140c68740c2ca6d52a281c6cd43559eec5))
+* **patch:** update dependency go to v1.26.6 ([#524](https://github.com/promhippie/prometheus-vcd-sd/issues/524)) ([751906b](https://github.com/promhippie/prometheus-vcd-sd/commit/751906b505437fcf12ec14aaf84ce4e07dddf788))
+* **patch:** update dependency pre-commit to v4.6.2 ([#521](https://github.com/promhippie/prometheus-vcd-sd/issues/521)) ([9c3b107](https://github.com/promhippie/prometheus-vcd-sd/commit/9c3b107305e7656876d4f7d2ea7283591047d61a))
+* **patch:** update golang docker tag to v1.26.6 ([#525](https://github.com/promhippie/prometheus-vcd-sd/issues/525)) ([36ddea8](https://github.com/promhippie/prometheus-vcd-sd/commit/36ddea8c39d655f9509d11a3ac91c8d11a95b408))
+
 ## [2.9.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.8.0...v2.9.0) (2026-08-10)
 
 ### Features
