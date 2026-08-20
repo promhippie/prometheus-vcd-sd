@@ -3,7 +3,7 @@ module github.com/promhippie/prometheus-vcd-sd
 go 1.26.3
 
 require (
-	github.com/go-chi/chi/v5 v5.3.1
+	github.com/go-chi/chi/v5 v5.3.2
 	github.com/joho/godotenv v1.5.1
 	github.com/oklog/run v1.2.0
 	github.com/prometheus/client_golang v1.24.1
