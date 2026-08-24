@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.11.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.10.0...v2.11.0) (2026-08-24)
+
+### Features
+
+* **minor:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.24.0 ([#530](https://github.com/promhippie/prometheus-vcd-sd/issues/530)) ([b1a9800](https://github.com/promhippie/prometheus-vcd-sd/commit/b1a9800ce34896cac88a80808a322094b31769e3))
+* **minor:** update dependency golangci-lint to v2.13.0 ([#534](https://github.com/promhippie/prometheus-vcd-sd/issues/534)) ([deefa2c](https://github.com/promhippie/prometheus-vcd-sd/commit/deefa2cd1a2867b63f3a5ee890572598d0e74e53))
+* **minor:** update dependency task to v3.53.1 ([#531](https://github.com/promhippie/prometheus-vcd-sd/issues/531)) ([b85436f](https://github.com/promhippie/prometheus-vcd-sd/commit/b85436f906cd63bcecdaab7668bf0529b222123a))
+* **minor:** update golang docker tag to v1.27.0 ([#533](https://github.com/promhippie/prometheus-vcd-sd/issues/533)) ([3ab3d46](https://github.com/promhippie/prometheus-vcd-sd/commit/3ab3d465f61e27c24ae6016e452be08bbae04feb))
+* **minor:** update module github.com/stretchr/testify to v1.12.1 ([#529](https://github.com/promhippie/prometheus-vcd-sd/issues/529)) ([e44925a](https://github.com/promhippie/prometheus-vcd-sd/commit/e44925a06bef7ebc1a707724bd4cef77dc6da036))
+
+### Bugfixes
+
+* **patch:** update dependency golangci-lint to v2.13.1 ([#535](https://github.com/promhippie/prometheus-vcd-sd/issues/535)) ([96e40d4](https://github.com/promhippie/prometheus-vcd-sd/commit/96e40d4a59d19515fb1eae98217a976cb0cc3f1e))
+* **patch:** update module github.com/go-chi/chi/v5 to v5.3.2 ([#536](https://github.com/promhippie/prometheus-vcd-sd/issues/536)) ([167e87f](https://github.com/promhippie/prometheus-vcd-sd/commit/167e87f51c8109a05bcb0a03d819b8d4f8f283fd))
+
 ## [2.10.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.9.0...v2.10.0) (2026-08-17)
 
 ### Features
