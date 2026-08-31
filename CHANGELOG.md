@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.12.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.11.0...v2.12.0) (2026-08-31)
+
+### Features
+
+* **minor:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.25.0 ([#539](https://github.com/promhippie/prometheus-vcd-sd/issues/539)) ([c974087](https://github.com/promhippie/prometheus-vcd-sd/commit/c974087c6fa4c3554d70dddc9781d375bd02b4ea))
+* **minor:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.26.0 ([#541](https://github.com/promhippie/prometheus-vcd-sd/issues/541)) ([2737511](https://github.com/promhippie/prometheus-vcd-sd/commit/2737511786da4eebad632055abb16de9a2ac00a0))
+* **minor:** update dependency go to v1.27.0 ([#532](https://github.com/promhippie/prometheus-vcd-sd/issues/532)) ([6bae7a0](https://github.com/promhippie/prometheus-vcd-sd/commit/6bae7a01c4581742ba9d3d614b42644b246b5ffc))
+* **minor:** update dependency goreleaser to v2.18.0 ([#537](https://github.com/promhippie/prometheus-vcd-sd/issues/537)) ([d644442](https://github.com/promhippie/prometheus-vcd-sd/commit/d64444262a8bc221f439ad2d9c8321b90838730c))
+* **minor:** update module github.com/prometheus/common to v0.71.0 ([#543](https://github.com/promhippie/prometheus-vcd-sd/issues/543)) ([3fe261c](https://github.com/promhippie/prometheus-vcd-sd/commit/3fe261c104c498c2e8e09d5ac742ed67793ace84))
+* **minor:** update module github.com/prometheus/exporter-toolkit to v0.19.0 ([#540](https://github.com/promhippie/prometheus-vcd-sd/issues/540)) ([d6b8846](https://github.com/promhippie/prometheus-vcd-sd/commit/d6b8846f745d9a9a73370b06864ba9f2ff4c73d4))
+
+### Bugfixes
+
+* **patch:** update dependency golangci-lint to v2.13.2 ([#542](https://github.com/promhippie/prometheus-vcd-sd/issues/542)) ([013aab6](https://github.com/promhippie/prometheus-vcd-sd/commit/013aab6620489ab976a0ee0643eabd24cb649477))
+
 ## [2.11.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.10.0...v2.11.0) (2026-08-24)
 
 ### Features
