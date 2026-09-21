@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.13.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.12.1...v2.13.0) (2026-09-21)
+
+### Features
+
+* **minor:** update module github.com/urfave/cli/v3 to v3.12.0 ([#552](https://github.com/promhippie/prometheus-vcd-sd/issues/552)) ([fea34f0](https://github.com/promhippie/prometheus-vcd-sd/commit/fea34f01a1c6c23a962b888ef480e7e103d3f1d8))
+* **minor:** update module github.com/urfave/cli/v3 to v3.13.0 ([#557](https://github.com/promhippie/prometheus-vcd-sd/issues/557)) ([23f6fac](https://github.com/promhippie/prometheus-vcd-sd/commit/23f6fac3390c6831bc2aafd114884a6e666a4499))
+
+### Bugfixes
+
+* **deps:** update alpine:3.24 docker digest to e7c4abb ([#554](https://github.com/promhippie/prometheus-vcd-sd/issues/554)) ([f932783](https://github.com/promhippie/prometheus-vcd-sd/commit/f93278313bdfaa0c9474d845b8b8de49ebb229d2))
+* **deps:** update docker digests ([#555](https://github.com/promhippie/prometheus-vcd-sd/issues/555)) ([deeb693](https://github.com/promhippie/prometheus-vcd-sd/commit/deeb6936e8b1f90b7e204bd969e26d132889d0c0))
+* **deps:** update docker digests ([#556](https://github.com/promhippie/prometheus-vcd-sd/issues/556)) ([a7865cf](https://github.com/promhippie/prometheus-vcd-sd/commit/a7865cfac26a3ef7c17855ffe52d2724325da1f5))
+
 ## [2.12.1](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.12.0...v2.12.1) (2026-09-07)
 
 ### Bugfixes
