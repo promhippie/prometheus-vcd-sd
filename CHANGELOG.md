@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.14.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.13.0...v2.14.0) (2026-09-28)
+
+### Features
+
+* **minor:** update module github.com/prometheus/exporter-toolkit to v0.20.0 ([#559](https://github.com/promhippie/prometheus-vcd-sd/issues/559)) ([2592026](https://github.com/promhippie/prometheus-vcd-sd/commit/2592026e8d33013b8dfab86970d1543d22748041))
+
+### Bugfixes
+
+* **deps:** update golang:1.27.1-alpine docker digest to 8a5910f ([#558](https://github.com/promhippie/prometheus-vcd-sd/issues/558)) ([ef45824](https://github.com/promhippie/prometheus-vcd-sd/commit/ef45824a2005e7bffcb531997fcb10114605b813))
+
 ## [2.13.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.12.1...v2.13.0) (2026-09-21)
 
 ### Features
