@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.15.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.14.0...v2.15.0) (2026-10-05)
+
+### Features
+
+* **minor:** update module github.com/prometheus/common to v0.72.0 ([#562](https://github.com/promhippie/prometheus-vcd-sd/issues/562)) ([ef8ab4b](https://github.com/promhippie/prometheus-vcd-sd/commit/ef8ab4bc5a70ffebef6120f47fa01090a146579b))
+* **minor:** update module github.com/urfave/cli/v3 to v3.14.0 ([#567](https://github.com/promhippie/prometheus-vcd-sd/issues/567)) ([76079d6](https://github.com/promhippie/prometheus-vcd-sd/commit/76079d66b1b9ffa09b196e90847df8cb2f793625))
+
 ## [2.14.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.13.0...v2.14.0) (2026-09-28)
 
 ### Features
