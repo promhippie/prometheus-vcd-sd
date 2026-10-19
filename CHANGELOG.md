@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.17.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.16.0...v2.17.0) (2026-10-19)
+
+### Features
+
+* **minor:** update module github.com/go-chi/chi/v5 to v5.5.0 ([#579](https://github.com/promhippie/prometheus-vcd-sd/issues/579)) ([09e104b](https://github.com/promhippie/prometheus-vcd-sd/commit/09e104b06ba2160c233fc66f99d646cc749b572b))
+
 ## [2.16.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.15.0...v2.16.0) (2026-10-12)
 
 ### Features
