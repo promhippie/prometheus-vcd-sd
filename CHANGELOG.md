@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.17.1](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.17.0...v2.17.1) (2026-10-26)
+
+### Bugfixes
+
+* **deps:** update alpine:3.24 docker digest to 71e9b7b ([#589](https://github.com/promhippie/prometheus-vcd-sd/issues/589)) ([330ab38](https://github.com/promhippie/prometheus-vcd-sd/commit/330ab3886a092e5dc98a1e3b9bf4725e4e4636d3))
+* **deps:** update alpine:3.24 docker digest to be26560 ([#593](https://github.com/promhippie/prometheus-vcd-sd/issues/593)) ([cec7362](https://github.com/promhippie/prometheus-vcd-sd/commit/cec73624728380949060ab1f09e18dc362ad6e52))
+* **deps:** update docker digests ([#588](https://github.com/promhippie/prometheus-vcd-sd/issues/588)) ([b8db4e4](https://github.com/promhippie/prometheus-vcd-sd/commit/b8db4e4f7e54e5ecd44b578fba470949e3ad168c))
+* **deps:** update golang:1.27.3-alpine docker digest to b8c9b82 ([#590](https://github.com/promhippie/prometheus-vcd-sd/issues/590)) ([800f3c5](https://github.com/promhippie/prometheus-vcd-sd/commit/800f3c596b33a8e54dc3ac60a25dc765dc47ac70))
+* **patch:** update golang docker tag to v1.27.3 ([#585](https://github.com/promhippie/prometheus-vcd-sd/issues/585)) ([eb74e57](https://github.com/promhippie/prometheus-vcd-sd/commit/eb74e57c18d757f210ecb5703017360182800f1d))
+
 ## [2.17.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.16.0...v2.17.0) (2026-10-19)
 
 ### Features
