@@ -504,8 +504,8 @@ github.com/uudashr/gocognit v1.3.0 h1:Xdw5JwAoYmX3WAB+wsXY3nxEwdw7+MWAnM0wCAAv7A
 github.com/uudashr/gocognit v1.3.0/go.mod h1:acaubQc6xYlXFEMb9nWX2dYBzJ/bIjEkc1zzvyIZg5Q=
 github.com/uudashr/iface v1.5.3 h1:N61bzr11L7BHP6Rct+C6zQePHjSTMeyVBq+s03uB/Ds=
 github.com/uudashr/iface v1.5.3/go.mod h1:5UWoT6SvTdTww/KToRj6clO+n4Kg3/NrAQvgOB+5Ggw=
-github.com/vmware/go-vcloud-director/v3 v3.1.1 h1:26lYPV7rpmetXvk19iBjmCaDmo1+PF0VaOhuPQCdar8=
-github.com/vmware/go-vcloud-director/v3 v3.1.1/go.mod h1:QLkQYCyYqToIKk22ARQpsGa6iioRLfY/yi66PZbrnPs=
+github.com/vmware/go-vcloud-director/v3 v3.1.2 h1:snTS74g8TiEZJVJlZZJ3Edgt/LIJ3gdpU6VUeRahL64=
+github.com/vmware/go-vcloud-director/v3 v3.1.2/go.mod h1:CuCE0wibOdfSJvXS+h333jid3TJJ3+64svOnefa5Qtg=
 github.com/x448/float16 v0.8.4 h1:qLwI1I70+NjRFUR3zs1JPUCgaCXSh3SW62uAKT1mSBM=
 github.com/x448/float16 v0.8.4/go.mod h1:14CWIYCyZA/cWjXOioeEpHeN/83MdbZDRQHoFcYsOfg=
 github.com/xen0n/gosmopolitan v1.3.0 h1:zAZI1zefvo7gcpbCOrPSHJZJYA9ZgLfJqtKzZ5pHqQM=
