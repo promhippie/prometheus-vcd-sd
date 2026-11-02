@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.18.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.17.1...v2.18.0) (2026-11-02)
+
+### Features
+
+* **minor:** update module github.com/prometheus/common to v0.73.0 ([#597](https://github.com/promhippie/prometheus-vcd-sd/issues/597)) ([ee162e8](https://github.com/promhippie/prometheus-vcd-sd/commit/ee162e898eb06465f93bb3b62a2f9dcee4965c40))
+
+### Bugfixes
+
+* **deps:** update golang:1.27.3-alpine docker digest to d200d2d ([#594](https://github.com/promhippie/prometheus-vcd-sd/issues/594)) ([193479f](https://github.com/promhippie/prometheus-vcd-sd/commit/193479fe0b79dcf7ed77a76d488cd4762ceef4cc))
+* **patch:** update module github.com/prometheus/common to v0.73.1 ([#600](https://github.com/promhippie/prometheus-vcd-sd/issues/600)) ([16a9cf1](https://github.com/promhippie/prometheus-vcd-sd/commit/16a9cf1dda05f234a2bc977a39dfd2e92abe01c3))
+* **patch:** update module github.com/vmware/go-vcloud-director/v3 to v3.1.2 ([#598](https://github.com/promhippie/prometheus-vcd-sd/issues/598)) ([9b189a3](https://github.com/promhippie/prometheus-vcd-sd/commit/9b189a3e670b69389778e8a05f1bc1c8459f5fb1))
+
 ## [2.17.1](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.17.0...v2.17.1) (2026-10-26)
 
 ### Bugfixes
