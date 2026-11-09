@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.18.1](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.18.0...v2.18.1) (2026-11-09)
+
+### Bugfixes
+
+* **deps:** update alpine:3.24 docker digest to f59abe6 ([#604](https://github.com/promhippie/prometheus-vcd-sd/issues/604)) ([f0207c4](https://github.com/promhippie/prometheus-vcd-sd/commit/f0207c4ec950e5b47b676920262dab07f6483586))
+* **deps:** update docker digests ([#603](https://github.com/promhippie/prometheus-vcd-sd/issues/603)) ([d40a7b8](https://github.com/promhippie/prometheus-vcd-sd/commit/d40a7b81793a26eb124e230794c713fa8f123040))
+
 ## [2.18.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.17.1...v2.18.0) (2026-11-02)
 
 ### Features
