@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.20.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.19.0...v2.20.0) (2026-11-23)
+
+### Features
+
+* **minor:** update module github.com/prometheus/exporter-toolkit to v0.21.0 ([#618](https://github.com/promhippie/prometheus-vcd-sd/issues/618)) ([b7e5f6e](https://github.com/promhippie/prometheus-vcd-sd/commit/b7e5f6ebc65ece5ba7f7be5838e0f7867c23578d))
+* switch to plain hugo and resolve deprecations ([974e80d](https://github.com/promhippie/prometheus-vcd-sd/commit/974e80db5465a814f8343e8a72e975bea77ea6aa))
+
 ## [2.19.0](https://github.com/promhippie/prometheus-vcd-sd/compare/v2.18.1...v2.19.0) (2026-11-16)
 
 ### Features
